@@ -1,0 +1,327 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[indonesian]{babel}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{pdflscape}
+\usepackage[hidelinks,breaklinks]{hyperref}
+\usepackage{xurl}
+\geometry{margin=2.5cm}
+
+\begin{document}
+
+\begin{center}
+\textbf{\Large RENCANA PEMBELAJARAN SEMESTER (RPS)}\\
+\textbf{Mata Kuliah Praktikum Pemrograman Python}\\
+\textbf{Berbasis Outcome-Based Education (OBE)}\\[0.5cm]
+\textbf{PROGRAM STUDI TEKNIK INFORMATIKA}\\
+\textbf{FAKULTAS TEKNIK}\\
+\textbf{UNIVERSITAS LOREM IPSUM}\\
+\end{center}
+
+\vspace{0.75cm}
+
+% ============================================================
+% BAGIAN A — Identitas dan konteks mata kuliah praktikum
+% ============================================================
+\section*{Bagian A. Identitas dan Konteks Mata Kuliah Praktikum}
+
+\noindent\textbf{Catatan:} RPS ini selaras dengan kerangka dokumen institusi dan \texttt{struktur\_silabus\_OBE.text}. Prodi dapat menyesuaikan bobot SKS, jumlah minggu efektif, dan penamaan komponen penilaian sesuai kalender akademik serta kebijakan mutu kampus.
+
+\begin{tabular}{@{}p{5.2cm}p{9.5cm}@{}}
+Nama Program Studi & : Teknik Informatika (S1) \\
+Nama Mata Kuliah & : Praktikum Pemrograman Python \\
+Kode Mata Kuliah & : TIF-105 \\
+Semester / Tahun Akademik & : \ldots\ / \ldots \\
+Bobot SKS (total) & : 1 SKS (seluruhnya Praktikum) \\
+Rincian SKS (jika MK campuran) & : T = 0, P = 1 (placeholder; sesuaikan jika MK teori terpisah) \\
+Dosen Pengampu & : \ldots \\
+Koordinator Praktikum (opsional) & : \ldots \\
+Kontak akademik & : \ldots \\
+Tim asisten laboratorium & : \ldots\ (jika ada) \\
+Prasyarat & : Tidak ada / \ldots\ (sesuai kurikulum prodi) \\
+Ko-requisit & : \ldots\ (jika ada) \\
+\end{tabular}
+
+\vspace{0.5cm}
+
+\noindent\textbf{Deskripsi singkat mata kuliah.} Praktikum ini membekali mahasiswa keterampilan pemrograman Python 3 dari tingkat dasar hingga lanjut: lingkungan pengembangan, sintaks dan struktur kontrol, fungsi dan modularitas, struktur data, pemrosesan berkas dan JSON, penggunaan modul serta \texttt{pip}/\texttt{venv}, debugging, lalu topik lanjut berupa pemrograman berorientasi objek dasar, \textit{comprehension}/\textit{generator}, dan pengujian unit tingkat pengenalan. Kegiatan berpusat pada laboratorium komputer dengan artefak kode dan dokumentasi yang dinilai melalui rubrik berbasis Sub-CPMK.
+
+\noindent\textbf{Alokasi waktu.} Acuan beban umum KPT untuk praktikum: $\pm$170 menit kegiatan terstruktur per minggu per SKS praktikum per semester. Untuk 1 SKS, prodi dapat merencanakan satu blok $\pm$170 menit/minggu atau pembagian slot lain yang setara; jumlah minggu pada Bagian E dapat dikurangi dengan menggabungkan topik jika beban SKS lebih kecil.
+
+\noindent\textbf{Sarana dan prasarana.} Laboratorium dengan Python 3.10+ (atau versi yang ditetapkan prodi), editor/IDE, akses internet terbatas untuk dokumentasi, proyektor/papan tulis, dan kebijakan K3 serta etika penggunaan perangkat lunak berlisensi.
+
+\vspace{0.75cm}
+
+% ============================================================
+% BAGIAN B — Sembilan komponen minimal RPS (SN-Dikti)
+% ============================================================
+\section*{Bagian B. Sembilan Komponen Minimal RPS (Penjabaran untuk Praktikum)}
+
+Komponen berikut dipenuhi melalui narasi di bawah serta terjemahan operasional pada Bagian C, D, dan E.
+
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+  \item \textbf{Identitas mata kuliah} --- tercantum pada Bagian A dan kop dokumen.
+
+  \item \textbf{Capaian pembelajaran lulusan (CPL) yang dibebankan} --- rumusan CPL prodi yang menjadi beban MK ini diuraikan pada awal Bagian C (lihat juga pemetaan matriks CPMK $\rightarrow$ CPL).
+
+  \item \textbf{Kemampuan akhir tiap tahap pembelajaran} --- dioperasionalkan sebagai Sub-CPMK per minggu pada tabel Bagian E dan daftar Sub-CPMK pada Bagian C.
+
+  \item \textbf{Bahan kajian} --- topik per pertemuan meliputi prosedur lab, konsep pemrograman Python, K3 dan etika (lisensi, keamanan data), serta standar gaya kode; rincian mingguan ada di kolom ``Bahan kajian'' Bagian E.
+
+  \item \textbf{Metode pembelajaran} --- briefing, demonstrasi, praktikum terbimbing, praktik mandiri/kelompok, konsultasi, pengecekan kinerja oleh dosen/asisten; tercantum per minggu di Bagian E.
+
+  \item \textbf{Waktu} --- alokasi menit/slot per sesi dan beban di luar tatap muka (persiapan, laporan) disesuaikan prodi; kolom ``Waktu'' pada Bagian E.
+
+  \item \textbf{Pengalaman belajar mahasiswa} --- LKS, skrip \texttt{.py}/notebook, pengumpulan repositori atau berkas, log praktikum, refleksi singkat; dijelaskan per minggu pada Bagian E.
+
+  \item \textbf{Penilaian} --- kriteria, indikator, bobot total 100\%, rubrik terhubung Sub-CPMK/CPMK; lihat Bagian D dan kolom ``Asesmen'' Bagian E.
+
+  \item \textbf{Daftar referensi} --- sumber terbuka dan RPS/modul kampus di akhir dokumen (selaras \texttt{sumber\_materi.md}).
+\end{enumerate}
+
+\vspace{0.75cm}
+
+% ============================================================
+% BAGIAN C — Blok OBE
+% ============================================================
+\section*{Bagian C. Capaian Pembelajaran, Sub-CPMK, Matriks, dan Strategi Analisis}
+
+\subsection*{C.1. Capaian pembelajaran lulusan (CPL) yang dibebankan}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{CPL-1 (Pengetahuan):} Menguasai konsep algoritme dan pemrograman prosedural serta prinsip modularitas, struktur data, dan penanganan data/berkas dalam konteks Python.
+  \item \textbf{CPL-2 (Keterampilan umum):} Menerapkan pemikiran logis, sistematis, dan kritis dalam merancang, mengimplementasikan, serta menguji program Python untuk masalah komputasi.
+  \item \textbf{CPL-3 (Keterampilan khusus):} Menulis, menguji, dan memperbaiki program Python mulai dari skrip dasar hingga struktur berorientasi objek sederhana, penggunaan pustaka standar, dan pengujian unit tingkat pengenalan.
+  \item \textbf{CPL-4 (Sikap):} Menunjukkan tanggung jawab di laboratorium, mematuhi K3 dan etika akademik (lisensi perangkat lunak, kejujuran tugas), serta mampu berkolaborasi saat tugas kelompok.
+  \item \textbf{CPL-5 (Pengetahuan / profesionalisme praktis):} Memahami praktik pengelolaan lingkungan virtual, dependensi, dan kualitas kode (\textit{debugging}, dokumentasi singkat) sebagai dasar kerja profesional.
+\end{itemize}
+
+\subsection*{C.2. Capaian pembelajaran mata kuliah (CPMK)}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{CPMK-1:} Mahasiswa mampu menyiapkan lingkungan Python 3, memahami sintaks dasar, identifier, tipe data, operator, serta masukan/keluaran konsol.
+  \item \textbf{CPMK-2:} Mahasiswa mampu merancang alur program dengan percabangan dan perulangan, termasuk pola bercabang dan penggunaan \texttt{match} pada tingkat pengenalan.
+  \item \textbf{CPMK-3:} Mahasiswa mampu memecah program menjadi fungsi yang dapat digunakan kembali, memahami parameter, nilai balik, \texttt{*args}/\texttt{**kwargs}, \textit{lambda}, dan anotasi tipe dasar.
+  \item \textbf{CPMK-4:} Mahasiswa mampu menggunakan struktur data (\texttt{list}, \texttt{tuple}, \texttt{dict}, \texttt{set}) dan pemrosesan string lanjut untuk manipulasi data.
+  \item \textbf{CPMK-5:} Mahasiswa mampu membaca/menulis berkas teks, bekerja dengan JSON sederhana, dan menerapkan penanganan kesalahan dengan \texttt{try}/\texttt{except}/\texttt{else}/\texttt{finally}.
+  \item \textbf{CPMK-6:} Mahasiswa mampu mengorganisasi kode dengan modul, mengelola paket menggunakan \texttt{pip}, menggunakan \texttt{venv}, serta melakukan \textit{debugging} dan penerapan gaya kode konsisten.
+  \item \textbf{CPMK-7:} Mahasiswa mampu menerapkan konsep lanjut berupa kelas dan pewarisan dasar, \textit{comprehension}/\textit{generator}, serta pengujian unit tingkat pengenalan (\texttt{unittest} atau \texttt{pytest}).
+\end{itemize}
+
+\subsection*{C.3. Sub-CPMK (indikator operasional)}
+
+\begin{description}[style=nextline,leftmargin=*]
+  \item[CPMK-1:] 1.1 Menjalankan Python 3 dan skrip dari terminal/editor/notebook; 1.2 Identifier, variabel, tipe dasar, konversi tipe; 1.3 Operator dan I/O (\texttt{print}, \texttt{input}).
+  \item[CPMK-2:] 2.1 Percabangan \texttt{if}/\texttt{elif}/\texttt{else} dan \texttt{match} pengenalan; 2.2 Perulangan \texttt{for}/\texttt{while}, \texttt{break}/\texttt{continue}, bersarang.
+  \item[CPMK-3:] 3.1 Definisi fungsi, parameter, nilai balik, ruang lingkup; 3.2 \texttt{*args}/\texttt{**kwargs}, \textit{lambda}, anotasi tipe.
+  \item[CPMK-4:] 4.1 Operasi \texttt{list}, \texttt{dict}, \texttt{set}, \texttt{tuple} lanjut; 4.2 String: \textit{slicing}, metode, pemformatan.
+  \item[CPMK-5:] 5.1 Berkas teks dan konteks \texttt{with}; 5.2 JSON dan penanganan pengecualian lanjut.
+  \item[CPMK-6:] 6.1 \texttt{import}, \texttt{pip}, \texttt{venv}; 6.2 \textit{Debugging} dan konvensi gaya.
+  \item[CPMK-7:] 7.1 Kelas, objek, pewarisan dasar; 7.2 \textit{Comprehension} dan \textit{generator}; 7.3 Unit test pengenalan.
+\end{description}
+
+\subsection*{C.4. Matriks pemetaan CPMK $\rightarrow$ CPL}
+
+{\small
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+\textbf{CPMK} & \textbf{CPL-1} & \textbf{CPL-2} & \textbf{CPL-3} & \textbf{CPL-4} & \textbf{CPL-5} \\
+\hline
+CPMK-1 & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
+CPMK-2 & $\checkmark$ & $\checkmark$ & $\checkmark$ & & \\
+CPMK-3 & $\checkmark$ & $\checkmark$ & $\checkmark$ & & $\checkmark$ \\
+CPMK-4 & $\checkmark$ & $\checkmark$ & $\checkmark$ & & \\
+CPMK-5 & $\checkmark$ & $\checkmark$ & $\checkmark$ & & \\
+CPMK-6 & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
+CPMK-7 & $\checkmark$ & $\checkmark$ & $\checkmark$ & & $\checkmark$ \\
+\hline
+\end{tabular}
+}
+
+\vspace{0.35cm}
+
+\noindent\textbf{Matriks pemetaan minggu rencana (Sub-CPMK utama) $\rightarrow$ CPMK.} Lihat kolom Sub-CPMK dan isi bahan kajian pada Bagian E; ringkasan: Minggu 1--2 $\rightarrow$ CPMK-1; 3--5 $\rightarrow$ CPMK-2; 6--7 $\rightarrow$ CPMK-3; 8 $\rightarrow$ CPMK-4; 9 $\rightarrow$ CPMK-5; 10 $\rightarrow$ CPMK-6; 11--13 $\rightarrow$ CPMK-7; Minggu 14--16 berisi asesmen sumatif/proyek terintegrasi lintas CPMK.
+
+\subsection*{C.5. Strategi analisis capaian}
+
+Urutan praktikum menggabungkan struktur \textbf{prosedural} (dari program linear ke kontrol alur, fungsi, data, berkas, lalu modul) dan \textbf{hierarkis} (keterampilan dasar menjadi prasyarat tugas berikutnya). Bagian akhir memakai \textbf{klaster} topik lanjut (OOP, \textit{generator}, pengujian) yang memperkaya CPMK-7 setelah fondasi stabil. Pendekatan ini selaras dengan modul praktikum internal Bab 0--8 dan memperluas cakupan hingga tingkat lanjut melalui tiga sesi tambahan sebelum asesmen akhir.
+
+\vspace{0.75cm}
+
+% ============================================================
+% BAGIAN D — Ringkasan asesmen semester
+% ============================================================
+\section*{Bagian D. Ringkasan Asesmen Semester (Total 100\%)}
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{4.2cm}|>{\raggedright\arraybackslash}p{5.8cm}|c|}
+\hline
+\textbf{Komponen} & \textbf{Teknik asesmen} & \textbf{Pemetaan CPMK / Sub-CPMK utama} & \textbf{Bobot (\%)} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Komponen} & \textbf{Teknik asesmen} & \textbf{Pemetaan CPMK / Sub-CPMK utama} & \textbf{Bobot (\%)} \\
+\hline
+\endhead
+\hline
+\endfoot
+
+Tugas praktikum mingguan & Latihan terstruktur di lab / unggah artefak & CPMK-1 s.d. CPMK-7 (sesuai minggu) & 28 \\
+\hline
+Laporan / log praktikum & Dokumen ringkas per modul atau portofolio & CPMK-1--6; bukti ketercapaian Sub-CPMK & 17 \\
+\hline
+Kinerja dan rubrik sesi & Observasi/checklist di lab & Sikap, K3, partisipasi (CPL-4); keterampilan sesuai Sub-CPMK & 10 \\
+\hline
+Ujian praktikum tengah & Tes terbatas waktu (coding) & CPMK-1--4; Sub-CPMK 1.1--4.2 & 20 \\
+\hline
+Ujian praktikum akhir / proyek integratif & Tes komprehensif atau proyek kecil berbasis OOP/\textit{testing} & CPMK-5--7; integrasi lintas topik & 25 \\
+\hline
+\textbf{Jumlah} & & & \textbf{100} \\
+\hline
+\end{longtable}
+
+\noindent\textbf{Instrumen:} rubrik coding (kebenaran, struktur, dokumentasi singkat), rubrik laporan, lembar observasi asisten, panduan revisi tugas.\\
+\noindent\textbf{Kriteria huruf (contoh):} A (85--100), B (70--84), C (60--69), D (50--59), E ($<$50) --- sesuaikan dengan polinom prodi.
+
+\vspace{0.75cm}
+
+% ============================================================
+% BAGIAN E — Tabel rencana mingguan
+% ============================================================
+\section*{Bagian E. Tabel Rencana Pembelajaran Mingguan}
+
+{\small
+\begin{landscape}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{|p{0.55cm}|p{2.35cm}|p{2.5cm}|p{1.65cm}|p{2.55cm}|p{1.05cm}|p{1.75cm}|p{3.15cm}|}
+\hline
+\textbf{Mgg} & \textbf{Sub-CPMK} & \textbf{Bahan kajian} & \textbf{Metode} & \textbf{Pengalaman belajar} & \textbf{Waktu} & \textbf{Asesmen} & \textbf{Referensi singkat} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Mgg} & \textbf{Sub-CPMK} & \textbf{Bahan kajian} & \textbf{Metode} & \textbf{Pengalaman belajar} & \textbf{Waktu} & \textbf{Asesmen} & \textbf{Referensi singkat} \\
+\hline
+\endhead
+\hline
+\endfoot
+
+1 & 1.1, K3, etika lab & Orientasi modul 0; K3 lab; etika akademik dan lisensi SW & Briefing, diskusi & Kontrak praktikum, checklist K3, refleksi singkat & $\pm$170' & Observasi & UM modul Python; PY4E \\
+\hline
+2 & 1.1--1.2 & Lingkungan Python 3, editor, identifier (modul 1) & Demo, praktik mandiri & Jalankan skrip, latihan identifier & $\pm$170' & Tugas M1 & Tutorial docs.python.org/id \\
+\hline
+3 & 1.2--1.3 & Variabel, tipe, operator, I/O (modul 2) & Praktikum terbimbing & Latihan \texttt{.py}/notebook & $\pm$170' & Tugas M2 & Modul UIMA; Think Python \\
+\hline
+4 & 2.1 & Percabangan, \texttt{match} pengenalan (modul 3) & PBL ringkas & Soal bertahap percabangan & $\pm$170' & Tugas M3 & Modul Pancasila \\
+\hline
+5 & 2.2 & Perulangan, bersarang (modul 4) & Praktik berkelompok & Latihan loop + laporan mini & $\pm$170' & Tugas M4 & Programiz; W3Schools \\
+\hline
+6 & 3.1 & Fungsi: definisi, parameter, balik (modul 5) & Demo, latihan & Pecah program jadi fungsi & $\pm$170' & Tugas M5a & Automate the Boring Stuff \\
+\hline
+7 & 3.2 & \texttt{*args}/\texttt{**kwargs}, \textit{lambda}, type hints (modul 5) & Praktik mandiri & Refaktor fungsi & $\pm$170' & Tugas M5b & Dive Into Python 3 \\
+\hline
+8 & 4.1--4.2 & Struktur data \& string lanjut (modul 6) & Praktikum & Manipulasi koleksi \& string & $\pm$170' & Tugas M6 & Google Python Class \\
+\hline
+9 & 5.1--5.2 & Berkas, JSON, penanganan kesalahan (modul 7) & Praktik terbimbing & Baca/tulis + JSON kecil & $\pm$170' & Tugas M7 & Real Python (file I/O) \\
+\hline
+10 & 6.1--6.2 & Modul, \texttt{pip}, \texttt{venv}, debugging (modul 8) & Demo, troubleshooting & Set up \texttt{venv}, impor modul & $\pm$170' & Tugas M8 & docs.python.org/tutorial \\
+\hline
+11 & 7.1 & OOP dasar: kelas, atribut, metode, pewarisan sederhana & Briefing, praktik & Mini-hierarki kelas & $\pm$170' & Tugas L1 & Think Python; Real Python \\
+\hline
+12 & 7.2 & \textit{Comprehension}, \textit{generator}, iterator pengenalan & Praktik mandiri & Refaktor dengan gaya idiomatik & $\pm$170' & Tugas L2 & Dive Into Python 3 \\
+\hline
+13 & 7.3 & \texttt{unittest}/\texttt{pytest} pengenalan, tes sederhana & Workshop singkat & Menulis tes untuk fungsi kecil & $\pm$170' & Tugas L3 & Real Python (testing) \\
+\hline
+14 & 2.1--4.2 (utama) & \textbf{UTS praktikum} & Tes praktik & Soal coding terbatas waktu & $\pm$170' & UTS (20\%) & --- \\
+\hline
+15 & Lintas CPMK & Proyek integratif kecil (konsol/CLI sederhana) & Bimbingan & Kode + README singkat & $\pm$170' & Proyek (bagian akhir) & PY4E proyek \\
+\hline
+16 & CPMK-5--7 (utama) & \textbf{UAS praktikum} / komprehensif & Tes praktik & Coding + berkas pendukung & $\pm$170' & UAS (25\%) & --- \\
+\hline
+\end{longtable}
+\end{landscape}
+}
+
+\vspace{0.5cm}
+
+\noindent\textbf{Keterangan:} Nomor minggu disesuaikan dengan kalender akademik (libur nasional, pengganti). Modul 0--8 merujuk pada buku modul praktikum internal (\texttt{modul\_praktikum\_python}). Jika MK dijalankan dengan SKS lebih rendah, gabungkan baris 11--12 atau 12--13 sesuai kebijakan dosen koordinator.
+
+\vspace{0.75cm}
+
+% ============================================================
+% BAGIAN F — Checklist SN-Dikti
+% ============================================================
+\section*{Bagian F. Checklist Selaras SN-Dikti (Verifikasi Sebelum Disahkan)}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Standar isi:} Bahan kajian selaras perkembangan IPTEKS dan capaian yang dijanjikan; urutan dari dasar ke lanjut terdokumentasi pada Bagian E.
+  \item \textbf{Standar proses:} Metode praktikum dan pengalaman belajar mahasiswa jelas pada setiap minggu; proporsi aktivitas mahasiswa tinggi.
+  \item \textbf{Standar penilaian:} Indikator, bobot, dan instrumen terhubung ke Sub-CPMK/CPMK; total 100\% pada Bagian D.
+  \item \textbf{Standar sarana dan prasarana:} Kebutuhan lab tercantum pada Bagian A; rencana alternatif (mis. laptop mandiri) dapat ditambahkan di lampiran SOP.
+  \item \textbf{Kemutakhiran:} Cantumkan revisi RPS (tanggal/versi) pada blok identitas ketika dokumen disetujui; jadwalkan peninjauan berkala.
+  \item \textbf{Penjajaran OBE:} Setiap minggu memiliki Sub-CPMK, bahan kajian, pengalaman belajar, dan asesmen yang konsisten serta terhubung ke CPMK dan CPL (Bagian C--E).
+\end{itemize}
+
+\vspace{1cm}
+
+% ============================================================
+% Daftar referensi (sumber_materi.md 1--19)
+% ============================================================
+\section*{Daftar Referensi}
+
+\begin{enumerate}[leftmargin=*]
+  \item UNESA (S1 Sains Data). \textit{RPS Pemrograman Dasar} (PDF). \url{https://sindig.unesa.ac.id/rps-pdf/s1-sains-data/pemrograman-dasar.pdf}
+
+  \item Universitas Brawijaya, Departemen Statistika/Sains Data. \textit{RPS Pemrograman Dasar} (PDF). \url{https://statistika.ub.ac.id/wp-content/uploads/2024/01/RPS-Pemrograman-Dasar.pdf}
+
+  \item Universitas Sebelas Maret. \textit{UNS Open CourseWare --- Algoritme \& Pemrograman Dasar dengan Python} (MAT320308). \url{https://ocw.uns.ac.id/site/detailmakul?params=14b317A4054yaVFVGVU16SXdNek6c23bcbb12f578660dbe4043d851963ceb72c9deE0Zkh4Tk1ERXg%3D}
+
+  \item Septian, T. \textit{Repositori modul praktikum pemrograman-python} (Jupyter). \url{https://github.com/twseptian/pemrograman-python}
+
+  \item Universitas Pancasila, Lab Komputer. \textit{Modul praktikum Python} (PDF). \url{https://teknik.univpancasila.ac.id/labkom/praktikum/Modul%20Praktikum/Pyhton/modul%20praktikum%20python.pdf}
+
+  \item UIMA, Silab. \textit{Modul pembelajaran pemrograman Python} (PDF). \url{https://silab.uima.ac.id/wp-content/uploads/2024/10/MODUL-PEMBELAJARAN-PEMROGRAMAN-PHYTON.pdf}
+
+  \item Universitas Negeri Malang. \textit{Modul pengenalan Python --- praktikum} (2016, PDF). \url{https://elektro.um.ac.id/wp-content/uploads/2016/04/MODUL-4-PENGENALAN-PYTHON.pdf}
+
+  \item Python Software Foundation. \textit{The Python Tutorial} (Python 3, bahasa Inggris). \url{https://docs.python.org/3/tutorial/index.html}
+
+  \item Python Software Foundation. \textit{The Python Tutorial} (Python 3, bahasa Indonesia). \url{https://docs.python.org/id/3/tutorial/index.html}
+
+  \item Python Software Foundation. \textit{Python Wiki --- BeginnersGuide}. \url{https://wiki.python.org/moin/BeginnersGuide}
+
+  \item Severance, C. \textit{Python for Everybody (PY4E)}. \url{https://www.py4e.com/}
+
+  \item Sweigart, A. \textit{Automate the Boring Stuff with Python}. \url{https://automatetheboringstuff.com/}
+
+  \item Downey, A. B. \textit{Think Python, 2e} (Green Tea Press). \url{https://greenteapress.com/wp/think-python-2e/}
+
+  \item Pilgrim, M. \textit{Dive Into Python 3}. \url{https://diveintopython3.net/}
+
+  \item Google. \textit{Google's Python Class} (Google Developers). \url{https://developers.google.com/edu/python}
+
+  \item W3Schools. \textit{Python Tutorial}. \url{https://www.w3schools.com/python/}
+
+  \item Programiz. \textit{Python Programming Tutorial}. \url{https://www.programiz.com/python-programming}
+
+  \item DataCamp (LearnPython.org). \textit{Learn Python} (interaktif). \url{https://www.learnpython.org/}
+
+  \item Real Python. \textit{Tutorial dan artikel Python 3}. \url{https://realpython.com/}
+\end{enumerate}
+
+\vspace{1cm}
+
+\begin{flushright}
+\begin{tabular}{c}
+\ldots, \today \\[2cm]
+\textbf{(Nama dan tanda tangan dosen pengampu)}\\
+NIP. \ldots
+\end{tabular}
+\end{flushright}
+
+\end{document}

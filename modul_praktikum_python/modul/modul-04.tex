@@ -1,0 +1,217 @@
+﻿\documentclass[../main.tex]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{4}}{}
+\begin{document}
+
+\chapter{Struktur Kontrol Perulangan}
+
+\begin{subcpmk}
+  \item Sub-CPMK 2.2: Menyusun program dengan perulangan \texttt{for} dan \texttt{while} termasuk pola bercabang
+\end{subcpmk}
+
+\SesiRPS{5}{2.2}{$\sim$170 menit}{CPMK-2}
+
+\section{Sarana dan prasarana}
+
+Python 3.10+, editor, terminal.
+
+\section{Prosedur kerja}
+
+\begin{enumerate}[leftmargin=*]
+  \item Praktik \texttt{for}, \texttt{while}, \texttt{break}/\texttt{continue} dari contoh.
+  \item Kerjakan latihan loop bersarang sesuai aktivitas.
+  \item Dokumentasikan pola iterasi pada laporan singkat.
+\end{enumerate}
+
+\section{Perulangan \texttt{for}}
+
+\texttt{for} digunakan untuk iterasi pada rentang atau koleksi. Tidak seperti beberapa bahasa lain, \texttt{for} di Python mengiterasi \textit{item} dari sequence secara langsung.
+
+\begin{lstlisting}[caption=for dengan range dan iterasi langsung (Tutorial Python ss4.2)]
+# Iterasi pada range
+for i in range(5):
+    print(i, end=" ")
+# 0 1 2 3 4
+
+# Iterasi langsung pada string
+for huruf in "Python":
+    print(huruf, end="-")
+# P-y-t-h-o-n-
+
+# Iterasi pada list
+buah = ["apel", "jeruk", "mangga"]
+for b in buah:
+    print(b)
+\end{lstlisting}
+
+\begin{konsep}
+Saat melakukan iterasi dan perlu memodifikasi koleksi, lebih aman untuk bekerja pada \textit{salinan}: \texttt{for b in buah[:]:}. Tutorial Python resmi (§4.2) juga menyarankan menggunakan fungsi seperti \texttt{enumerate()} untuk mendapatkan indeks sekaligus nilai (dibahas di modul 6).
+\end{konsep}
+
+\section{Fungsi \texttt{range()}}
+
+\texttt{range(a, b)} menghasilkan $a, a+1, \ldots, b-1$. \texttt{range(a, b, step)} menyertakan langkah (Tutorial Python §4.3):
+
+\begin{lstlisting}[caption=Variasi range]
+list(range(5))          # [0, 1, 2, 3, 4]
+list(range(2, 8))       # [2, 3, 4, 5, 6, 7]
+list(range(0, 20, 5))   # [0, 5, 10, 15]
+list(range(10, 0, -2))  # [10, 8, 6, 4, 2]  -- menurun
+\end{lstlisting}
+
+\section{Perulangan \texttt{while}}
+
+Cocok bila jumlah iterasi tidak pasti:
+
+\begin{lstlisting}[caption=while]
+n = int(input("n: "))
+i = 1
+while i <= n:
+    print(i * i)
+    i += 1
+\end{lstlisting}
+
+\section{\texttt{break} dan \texttt{continue}}
+
+\texttt{break} menghentikan seluruh loop; \texttt{continue} melompat ke iterasi berikutnya:
+
+\begin{lstlisting}[caption=break dan continue]
+# continue: cetak bilangan ganjil saja
+for x in range(10):
+    if x % 2 == 0:
+        continue
+    print(x, end=" ")
+# 1 3 5 7 9
+
+# break: berhenti saat menemukan bilangan negatif
+angka = [3, 7, -1, 5, 2]
+for a in angka:
+    if a < 0:
+        print(f"\nDitemukan angka negatif: {a}, berhenti.")
+        break
+    print(a, end=" ")
+\end{lstlisting}
+
+\section{Klausa \texttt{else} pada Loop}
+
+Ini adalah fitur \textbf{unik} Python yang sering mengejutkan programmer dari bahasa lain. Blok \keyword{else} pada loop dieksekusi \textbf{setelah loop selesai secara normal} (tidak dihentikan oleh \texttt{break}). Sangat berguna untuk algoritme pencarian.
+
+\begin{lstlisting}[caption=else pada loop for (Tutorial Python ss4.5)]
+# Mencari bilangan prima (contoh dari tutorial resmi)
+for n in range(2, 10):
+    for x in range(2, n):
+        if n % x == 0:
+            print(n, "=", x, "*", n//x)
+            break
+    else:
+        # Loop tidak menemukan faktor -> n adalah prima
+        print(n, "adalah bilangan prima")
+\end{lstlisting}
+
+\begin{lstlisting}[caption=else pada loop while: pencarian nilai]
+daftar = [5, 3, 8, 1, 9, 2]
+target = 7
+i = 0
+while i < len(daftar):
+    if daftar[i] == target:
+        print(f"Ditemukan {target} di indeks {i}")
+        break
+    i += 1
+else:
+    # Keluar dari while tanpa break -> target tidak ditemukan
+    print(f"{target} tidak ada dalam daftar")
+\end{lstlisting}
+
+\begin{konsep}
+Pola \texttt{for/while ... else} adalah idiom Python yang elegan untuk pencarian: jika loop selesai tanpa \texttt{break}, berarti kondisi pencarian tidak terpenuhi dan blok \texttt{else} dieksekusi.
+\end{konsep}
+
+\section{\texttt{pass} dalam Loop}
+
+Seperti pada percabangan, \texttt{pass} dapat digunakan dalam loop sebagai placeholder:
+
+\begin{lstlisting}[caption=pass dalam loop]
+# Loop yang belum diimplementasikan isinya
+while True:
+    pass  # Placeholder - akan diisi dengan logika nanti
+\end{lstlisting}
+
+\section{Loop Bersarang}
+
+Digunakan untuk pola matriks sederhana, pola bintang, atau kombinatorika kecil:
+
+\begin{lstlisting}[caption=Pola bintang dengan loop bersarang]
+n = 5
+for baris in range(1, n + 1):
+    print("*" * baris)
+# *
+# **
+# ***
+# ****
+# *****
+\end{lstlisting}
+
+\begin{aktivitas}
+  \item Cetak bilangan 1--100 yang habis dibagi 7 menggunakan \texttt{for}.
+  \item Baca bilangan $n$, cetak faktorial $n!$ dengan \texttt{while} (asumsikan $n$ kecil).
+  \item Gambar pola segitiga bintang tinggi $n$ dari masukan.
+  \item Gabungkan loop dan \texttt{if}: jumlahkan bilangan positif sampai pengguna memasukkan 0 sebagai penanda (gunakan \texttt{while}).
+  \item Implementasikan pencarian nilai dalam list menggunakan \texttt{for...else}: cetak pesan khusus bila nilai tidak ditemukan.
+  \item Buat program yang mencari semua bilangan prima antara 2 dan 50 menggunakan pola \texttt{for...for...else}.
+\end{aktivitas}
+
+\begin{latihan}
+  \item Kapan memilih \texttt{for} dibanding \texttt{while}?
+  \item Apa beda \texttt{break} dan \texttt{continue}? Beri contoh masing-masing satu baris dalam loop.
+  \item Jelaskan dengan kata-kata Anda sendiri apa yang dilakukan klausa \texttt{else} pada \texttt{for}. Di situasi apa ini berguna?
+  \item Jelaskan kompleksitas waktu perkiraan untuk loop bersarang dua tingkat dengan \texttt{range(n)} pada keduanya.
+  \item Refleksi: kesalahan \textit{off-by-one} sering terjadi pada \texttt{range}; bagaimana Anda menghindarinya?
+\end{latihan}
+
+\begin{asesmen}
+\textbf{Latihan terbatas waktu}
+
+\begin{enumerate}
+  \item Loop manakah yang mencetak tepat tiga angka?
+  \begin{enumerate}
+    \item \texttt{for i in range(3): print(i)}
+    \item \texttt{for i in range(1, 3): print(i)}
+    \item \texttt{for i in range(4): print(i)}
+    \item \texttt{for i in range(0, 10, 3): print(i)}
+  \end{enumerate}
+  \item Blok \texttt{else} pada loop \texttt{for} dieksekusi ketika:
+  \begin{enumerate}
+    \item Loop dijalankan setidaknya sekali
+    \item Loop berakhir karena \texttt{break}
+    \item Loop selesai tanpa \texttt{break}
+    \item Kondisi loop bernilai \texttt{False} sejak awal
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{Tugas}: program yang membaca $n$ dan menghitung jumlah kuadrat bilangan 1 sampai $n$ dengan \texttt{for}. Tambahkan program \texttt{cari\_prima.py} yang mencetak semua bilangan prima di bawah 100 menggunakan pola \texttt{for...else}.
+\end{asesmen}
+
+\begin{checklist}
+  \item Saya dapat memakai \texttt{range} dengan satu, dua, atau tiga argumen
+  \item Saya dapat menulis \texttt{while} yang berhenti dengan kondisi yang benar
+  \item Saya memahami \texttt{break} dan \texttt{continue}
+  \item Saya memahami dan dapat menggunakan klausa \texttt{else} pada \texttt{for} dan \texttt{while}
+  \item Saya dapat menyelesaikan masalah sederhana dengan loop bersarang
+\end{checklist}
+
+\begin{rangkuman}
+Perulangan mengotomatisasi tugas berulang. \texttt{for} cocok untuk iterasi terkendali; \texttt{while} untuk kondisi umum. Klausa \texttt{else} pada loop adalah fitur unik Python yang berguna untuk algoritme pencarian --- blok \texttt{else} dieksekusi hanya jika loop selesai tanpa \texttt{break}.
+
+\textbf{Referensi:} {\small Python Tutorial §4.2--4.6 \url{https://docs.python.org/3/tutorial/controlflow.html}}
+
+\textbf{Kata kunci:} \code{for}, \code{while}, \code{range}, \code{break}, \code{continue}, \code{else}, \code{pass}
+\end{rangkuman}
+
+\section{Referensi sesi}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{[16]} W3Schools, \textit{Python Tutorial}.
+  \item \textbf{[17]} Programiz, \textit{Python Programming Tutorial}.
+  \item \textbf{[8, 9]} \textit{The Python Tutorial}, perulangan.
+\end{itemize}
+
+\end{document}

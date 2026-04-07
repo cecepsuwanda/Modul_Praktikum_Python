@@ -3,32 +3,35 @@ setlocal enabledelayedexpansion
 
 set "ROOT_DIR=%~dp0"
 set "OUTPUT_DIR=%ROOT_DIR%output"
-set "SOURCE_DIR=%ROOT_DIR%buku_ajar"
+set "SOURCE_DIR=%ROOT_DIR%modul_praktikum_python"
 
 if not exist "%OUTPUT_DIR%" mkdir "%OUTPUT_DIR%"
 
 echo ============================================================
-echo Compiling Individual Chapters
+echo Compiling Individual Modules (modul_praktikum_python\modul)
 echo ============================================================
 
-pushd "%SOURCE_DIR%\bab"
+pushd "%SOURCE_DIR%\modul"
 
-for %%F in (bab-*.tex) do (
+for %%F in (modul-*.tex) do (
     set "FILE_NAME=%%~nF"
     echo.
     echo ------------------------------------------------------------
     echo Compiling !FILE_NAME!...
     echo ------------------------------------------------------------
-    
+
     pdflatex -interaction=nonstopmode -halt-on-error "%%F"
     if !errorlevel! equ 0 (
-        bibtex "!FILE_NAME!"
+        rem Tidak ada bibliografi di modul ini; dua lari pdflatex untuk stabilkan referensi silang/TOC subfiles
         pdflatex -interaction=nonstopmode -halt-on-error "%%F"
-        pdflatex -interaction=nonstopmode -halt-on-error "%%F"
-        
+
         if exist "!FILE_NAME!.pdf" (
             echo Moving !FILE_NAME!.pdf to output...
-            move /y "!FILE_NAME!.pdf" "..\..\output\!FILE_NAME!.pdf"
+            move /y "!FILE_NAME!.pdf" "%OUTPUT_DIR%\!FILE_NAME!.pdf"
+        )
+        if exist "!FILE_NAME!.log" (
+            echo Moving !FILE_NAME!.log to output...
+            move /y "!FILE_NAME!.log" "%OUTPUT_DIR%\!FILE_NAME!.log"
         )
     ) else (
         echo ERROR compiling !FILE_NAME!.
@@ -41,7 +44,7 @@ echo Cleaning up intermediate files...
 call :cleanup "%SOURCE_DIR%"
 
 echo.
-echo Operation Completed. Check the output folder for PDFs.
+echo Operation Completed. Check the output folder for PDF and .log files.
 goto :end
 
 :cleanup

@@ -1,0 +1,56 @@
+# LaTeX — artefak kompilasi
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*-blx.bib
+*.nav
+*.snm
+*.vrb
+*.xdv
+*.dvi
+*.ps
+*.pdf
+
+# BibLaTeX / biber
+*.bbl-SAVE-ERROR
+*.bcf-SAVE-ERROR
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# Lingkungan & IDE (opsional lokal)
+.env
+.env.*
+!.env.example
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
