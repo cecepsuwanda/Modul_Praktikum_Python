@@ -66,6 +66,50 @@ Nama variabel/fungsi (\textit{identifier}) memakai huruf, angka, dan garis bawah
 Nama yang baik: \texttt{nilai\_tugas}, \texttt{hitung\_rata}. Hindari: \texttt{1nilai}, \texttt{if} (konflik kata kunci).
 \end{contoh}
 
+\section{Studi Kasus dan Contoh Kode}
+
+Berikut adalah contoh-contoh program Python yang mengimplementasikan konsep-konsep pada modul ini.
+
+\subsection{Kode: \texttt{hello.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{hello.py}}]
+"""Menampilkan Hello dunia (cuplikan minimal)."""
+
+
+def main() -> None:
+    print("Hello, dunia")
+    input("Tekan Enter untuk melanjutkan...")
+
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\subsection{Kode: \texttt{hello2.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{hello2.py}}]
+"""Hello dengan variabel string dan integer (setara hello2.pas)."""
+
+
+def main() -> None:
+    # Nama Program : hello2.pas - cuplikan dari modul Pascal
+    shello = "Hello, dunia"
+    i = 1234
+    print(shello)
+    print("Nilai i = ", i)
+    input("Tekan Enter untuk melanjutkan...")
+
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\section{Referensi sesi}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{[8, 9]} \textit{The Python Tutorial} (Python 3, EN/ID).
+  \item \textbf{[10]} Python Wiki, \textit{BeginnersGuide}.
+  \item \textbf{[11]} Severance, C. \textit{Python for Everybody (PY4E)}.
+\end{itemize}
+
 \begin{aktivitas}
   \item Verifikasi versi Python di stasiun lab dan catat pada lembar observasi.
   \item Buat berkas \texttt{perkenalan.py} yang mencetak nama NIM dan kelas Anda.
@@ -117,13 +161,5 @@ Bab ini membahas instalasi/verifikasi Python 3, menjalankan kode lewat REPL, skr
 
 \textbf{Kata kunci:} \code{REPL}, \code{Jupyter}, \code{.py}, \code{identifier}
 \end{rangkuman}
-
-\section{Referensi sesi}
-
-\begin{itemize}[leftmargin=*]
-  \item \textbf{[8, 9]} \textit{The Python Tutorial} (Python 3, EN/ID).
-  \item \textbf{[10]} Python Wiki, \textit{BeginnersGuide}.
-  \item \textbf{[11]} Severance, C. \textit{Python for Everybody (PY4E)}.
-\end{itemize}
 
 \end{document}

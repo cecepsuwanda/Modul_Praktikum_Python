@@ -188,6 +188,65 @@ except ValueError as e:
 \end{itemize}
 \end{konsep}
 
+\section{Studi Kasus dan Contoh Kode}
+
+Berikut adalah contoh-contoh program Python yang mengimplementasikan konsep-konsep pada modul ini.
+
+\subsection{Kode: \texttt{baca\_tulis.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{baca\_tulis.py}}]
+"""Menulis dan membaca file teks dengan penanganan kesalahan dasar."""
+
+
+def main() -> None:
+    nama_file = "data_mahasiswa.txt"
+    
+    # Menulis ke file
+    try:
+        with open(nama_file, "w", encoding="utf-8") as f:
+            f.write("Budi, 3.8\n")
+            f.write("Siti, 3.9\n")
+        print(f"Data berhasil ditulis ke {nama_file}.")
+    except IOError as e:
+        print(f"Gagal menulis file: {e}")
+
+    # Membaca dari file
+    try:
+        with open(nama_file, "r", encoding="utf-8") as f:
+            print("\nIsi file:")
+            for baris in f:
+                print(baris.strip())
+    except FileNotFoundError:
+        print(f"File {nama_file} tidak ditemukan.")
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\subsection{Kode: \texttt{olah\_json.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{olah\_json.py}}]
+"""Menyimpan dan memuat data JSON."""
+import json
+
+
+def main() -> None:
+    data = {
+        "mata_kuliah": "Praktikum Pemrograman",
+        "peserta": ["Andi", "Budi", "Citra"]
+    }
+    file_json = "data.json"
+    
+    with open(file_json, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=4)
+        print("Data JSON telah disimpan.")
+        
+    with open(file_json, "r", encoding="utf-8") as f:
+        data_baca = json.load(f)
+        print("Data JSON dibaca:", data_baca["mata_kuliah"])
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
 \begin{aktivitas}
   \item Buat program yang menyalin isi satu berkas teks ke berkas lain (tanpa \texttt{shutil}, gunakan loop baca/tulis).
   \item Hitung jumlah baris, kata, dan karakter pada berkas teks dummy.\newline Gunakan \texttt{enumerate}.
@@ -246,6 +305,13 @@ except ValueError as e:
   \item Saya dapat memformat output dengan f-string dan format specification
 \end{checklist}
 
+\section{Referensi sesi}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{[19]} Real Python --- berkas, I/O, dan topik terkait.
+  \item \textbf{[8, 9]} \textit{The Python Tutorial}, masukan/keluaran dan kesalahan.
+\end{itemize}
+
 \begin{rangkuman}
 Akses berkas memerlukan manajemen sumber daya yang benar --- \texttt{with} membantu menutup berkas meskipun terjadi error. JSON adalah format pertukaran data yang ringkas untuk menyimpan struktur data Python. Penanganan exception yang tepat membuat program lebih robust dan ramah pengguna.
 
@@ -253,12 +319,5 @@ Akses berkas memerlukan manajemen sumber daya yang benar --- \texttt{with} memba
 
 \textbf{Kata kunci:} \code{open}, \code{with}, \code{read}, \code{readline}, \code{seek}, \code{json}, \code{try}, \code{except}, \code{else}, \code{finally}, \code{raise}
 \end{rangkuman}
-
-\section{Referensi sesi}
-
-\begin{itemize}[leftmargin=*]
-  \item \textbf{[19]} Real Python --- berkas, I/O, dan topik terkait.
-  \item \textbf{[8, 9]} \textit{The Python Tutorial}, masukan/keluaran dan kesalahan.
-\end{itemize}
 
 \end{document}

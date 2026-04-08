@@ -58,6 +58,46 @@ def test_kali():
 
 \noindent Jalankan: \texttt{pytest -q test\_contoh\_pytest.py}.
 
+\section{Studi Kasus dan Contoh Kode}
+
+Berikut adalah contoh-contoh program Python yang mengimplementasikan konsep-konsep pada modul ini.
+
+\subsection{Kode: \texttt{test\_matematika.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{test\_matematika.py}}]
+"""Contoh pengujian unit sederhana dengan unittest."""
+import unittest
+
+
+def tambah(a: int, b: int) -> int:
+    return a + b
+
+def bagi(a: float, b: float) -> float:
+    if b == 0:
+        raise ValueError("Pembagi tidak boleh nol")
+    return a / b
+
+class TestMatematika(unittest.TestCase):
+    def test_tambah(self) -> None:
+        self.assertEqual(tambah(2, 3), 5)
+        self.assertEqual(tambah(-1, 1), 0)
+
+    def test_bagi(self) -> None:
+        self.assertEqual(bagi(10, 2), 5.0)
+        with self.assertRaises(ValueError):
+            bagi(10, 0)
+
+if __name__ == "__main__":
+    unittest.main()
+\end{lstlisting}
+
+\section{Referensi sesi}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{[19]} Real Python --- pengujian dan \texttt{pytest}/\texttt{unittest}.
+  \item \textbf{[8]} \textit{The Python Tutorial} --- modul \texttt{unittest}.
+  \item \textbf{[13]} \textit{Think Python} --- pengujian dan asersi (bab terkait).
+\end{itemize}
+
 \begin{aktivitas}
   \item Implementasikan fungsi \texttt{palindrome(s)} yang mengembalikan \texttt{True} jika string sama jika dibalik (abaikan spasi opsional sesuai spesifikasi dosen).
   \item Tulis minimal tiga kasus uji (positif, negatif, string kosong) dengan \texttt{unittest}.
@@ -85,13 +125,5 @@ Pengujian unit membantu memastikan fungsi berperilaku sesuai kontrak; \texttt{un
 
 \textbf{Kata kunci:} \code{unittest}, \code{pytest}, asersi, kasus uji
 \end{rangkuman}
-
-\section{Referensi sesi}
-
-\begin{itemize}[leftmargin=*]
-  \item \textbf{[19]} Real Python --- pengujian dan \texttt{pytest}/\texttt{unittest}.
-  \item \textbf{[8]} \textit{The Python Tutorial} --- modul \texttt{unittest}.
-  \item \textbf{[13]} \textit{Think Python} --- pengujian dan asersi (bab terkait).
-\end{itemize}
 
 \end{document}

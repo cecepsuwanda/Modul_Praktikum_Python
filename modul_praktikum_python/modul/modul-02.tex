@@ -155,6 +155,164 @@ print(". Selesai")
 # Loading... Selesai
 \end{lstlisting}
 
+\section{Studi Kasus dan Contoh Kode}
+
+Berikut adalah contoh-contoh program Python yang mengimplementasikan konsep-konsep pada modul ini.
+
+\subsection{Kode: \texttt{demo\_tipe\_data.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{demo\_tipe\_data.py}}]
+"""Demonstrasi beberapa tipe data (integer, besar, byte, float, string)."""
+
+
+def main() -> None:
+    # KAMUS / ALGORITMA - setara demo_tipe_data.pas
+    shello = "Hello, dunia"
+    i = -1234
+    j = 60000  # setara word (non-negatif, di Python int bebas)
+    k = 3  # byte
+    lr = 3.14  # real (hindari nama 'l' tunggal)
+    print(shello)
+    print(f"Nilai i (integer)= {i:5d}")
+    print(f"Nilai j (word)   = {j:5d}")
+    print(f"Nilai k (byte)   = {k:5d}")
+    print(f"Nilai l (real)   = {lr:5.2f}")
+    input("Tekan Enter untuk melanjutkan...")
+
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\subsection{Kode: \texttt{assignment\_real.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{assignment\_real.py}}]
+"""Rantai assignment pada variabel float."""
+
+
+def main() -> None:
+    i = 3.0
+    b = 2.0
+    c = 0.0
+    i = i + i
+    b = b + i
+    c = c * i
+    print(f"Nilai i={i} b={b} c={c}", end="")
+
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\subsection{Kode: \texttt{baca\_tulis.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{baca\_tulis.py}}]
+"""Contoh membaca dan menulis beberapa tipe dari input."""
+
+
+def main() -> None:
+    print("Contoh membaca dan menulis")
+    i = int(input("Masukkan nilai integer  : "))
+    j = float(input("Masukkan nilai real     : "))
+    kar = input("Masukkan nilai karakter : ").strip()[:1] or " "
+    n_string = input("Masukkan nilai string   : ")
+    print("Nilai integer yang dibaca  =", i)
+    print("Nilai real yang dibaca     =", j)
+    print("Nilai karakter yang dibaca =", kar)
+    print("Nilai string yang dibaca   =", n_string)
+    input("Tekan Enter untuk melanjutkan...")
+
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\subsection{Kode: \texttt{operasi\_boolean\_dan\_numerik.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{operasi\_boolean\_dan\_numerik.py}}]
+"""Tabel kebenaran boolean dan operasi numerik int/float."""
+
+
+def main() -> None:
+    def fmt_bool(v: object, width: int) -> str:
+        s = str(v)
+        return f"{s:>{width}}"
+
+    print("tabel kebenaran")
+    print("-----------------------------------------------------")
+    print("|   x1  |   x2  |     x1 and x2     |    x1 or x2  |")
+    print("----------------------------------------------------")
+    print(
+        "| true  | true  |"
+        + fmt_bool(True and True, 12)
+        + f"{'|':>8}"
+        + fmt_bool(True or True, 10)
+        + f"{'|':>8}"
+    )
+    print(
+        "| true  | false |"
+        + fmt_bool(True and False, 12)
+        + f"{'|':>8}"
+        + fmt_bool(True or False, 10)
+        + f"{'|':>8}"
+    )
+    print(
+        "| false | true  |"
+        + fmt_bool(False and True, 12)
+        + f"{'|':>8}"
+        + fmt_bool(False or True, 10)
+        + f"{'|':>8}"
+    )
+    print(
+        "| false | false |"
+        + fmt_bool(False and False, 12)
+        + f"{'|':>8}"
+        + fmt_bool(False or False, 10)
+        + f"{'|':>8}"
+    )
+    print("----------------------------------------------------")
+
+    i, j = 5, 2
+    print("operasi numerik pada tipe data integer")
+    print("---------------------------")
+    print("| operasi | hasil operasi |")
+    print("---------------------------")
+    print(f"| {i} + {j}   | {i + j:6d}        |")
+    print(f"| {i} - {j}   | {i - j:6d}        |")
+    print(f"| {i} * {j}   | {i * j:6d}        |")
+    print(f"| {i} / {j}   | {i / j:6.2f}        |")
+    print(f"| {i} div {j} | {i // j:6d}        |")
+    print(f"| {i} mod {j} | {i % j:6d}        |")
+    print("---------------------------")
+    print("Tekan enter untuk meneruskan . . .")
+    input()
+
+    x, y = 5.0, 2.0
+    print("operasi numerik pada tipe data float")
+    print("---------------------------")
+    print("| operasi | hasil operasi |")
+    print("---------------------------")
+    print(f"| {x:3.1f} + {y:3.1f}   | {x + y:6.1f}    |")
+    print(f"| {x:3.1f} - {y:3.1f}   | {x - y:6.1f}    |")
+    print(f"| {x:3.1f} * {y:3.1f}   | {x * y:6.1f}    |")
+    print(f"| {x:3.1f} / {y:3.1f}   | {x / y:6.1f}    |")
+    print("---------------------------")
+
+    tf = x != y
+    print("5.0 <> 2.0 adalah=", tf)
+    tf = x < y
+    print("5.0 < 2.0 adalah=", tf)
+    input("Tekan Enter untuk melanjutkan...")
+
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\section{Referensi sesi}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{[6]} UIMA Silab, \textit{Modul pembelajaran pemrograman Python}.
+  \item \textbf{[13]} Downey, A. B. \textit{Think Python, 2e}.
+  \item \textbf{[8, 9]} \textit{The Python Tutorial}.
+\end{itemize}
+
 \begin{aktivitas}
   \item Tulis program yang membaca dua bilangan bulat dan menampilkan jumlah, selisih, dan hasil kali.
   \item Baca nama dan umur (tahun), lalu cetak kalimat perkenalan satu paragraf.
@@ -228,13 +386,5 @@ Bab ini membahas variabel, tipe dasar, operator, metode string, serta \texttt{in
 
 \textbf{Kata kunci:} \code{int}, \code{float}, \code{str}, \code{bool}, \code{input}, \code{print}, \code{split}, \code{strip}, \code{join}
 \end{rangkuman}
-
-\section{Referensi sesi}
-
-\begin{itemize}[leftmargin=*]
-  \item \textbf{[6]} UIMA Silab, \textit{Modul pembelajaran pemrograman Python}.
-  \item \textbf{[13]} Downey, A. B. \textit{Think Python, 2e}.
-  \item \textbf{[8, 9]} \textit{The Python Tutorial}.
-\end{itemize}
 
 \end{document}

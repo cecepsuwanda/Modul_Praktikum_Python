@@ -150,6 +150,217 @@ for baris in range(1, n + 1):
 # *****
 \end{lstlisting}
 
+\section{Studi Kasus dan Contoh Kode}
+
+Berikut adalah contoh-contoh program Python yang mengimplementasikan konsep-konsep pada modul ini.
+
+\subsection{Kode: \texttt{hitung\_mundur.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{hitung\_mundur.py}}]
+"""Mencetak hitung mundur N, N-1, ... , 1, 0."""
+
+
+def main() -> None:
+    n = int(input("Masukan angka : "))
+    for i in range(n, 0, -1):
+        print(i, ", ", sep="", end="")
+    print("0")
+
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\subsection{Kode: \texttt{menu\_geometri\_repeat.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{menu\_geometri\_repeat.py}}]
+"""Menu geometri dengan repeat sampai pilihan 0."""
+
+PI = 3.14
+
+
+def main() -> None:
+    while True:
+        print("         <<< Menu >>>        ")
+        print()
+        print("1. Menghitung Isi Kubus")
+        print("2. Menghitung Luas Lingkaran")
+        print("3. Menghitung Isi Silinder")
+        print("0. Keluar Program")
+        pilih = int(input("Pilih Nomor : "))
+        if pilih == 1:
+            sisi = float(input("Panjang Sisi Kubus : "))
+            print("Isi Kubus :", sisi * sisi * sisi)
+        elif pilih == 2:
+            jari = float(input("Jari-jari lingkaran : "))
+            print("Luas Lingkaran :", PI * jari * jari)
+        elif pilih == 3:
+            jari = float(input("Jari-jari lingkaran : "))
+            tinggi = float(input("Tinggi Silinder : "))
+            print("Isi Silinder :", PI * jari * jari * tinggi)
+        input("Tekan Enter untuk melanjutkan...")
+        if pilih == 0:
+            break
+
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\subsection{Kode: \texttt{pangkat\_for.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{pangkat\_for.py}}]
+"""Pangkat bilangan real dengan perulangan for."""
+
+
+def main() -> None:
+    dipangkatkan = float(input("Bilangan yang akan dipangkatkan : "))
+    pangkat = int(input("Masukkan pangkatnya : "))
+    hasilpangkat = 1.0
+    for _i in range(1, pangkat + 1):
+        hasilpangkat *= dipangkatkan
+    print(dipangkatkan, "^", pangkat, " : ", hasilpangkat, sep="")
+    input("Tekan Enter untuk melanjutkan...")
+
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\subsection{Kode: \texttt{pola\_bintang.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{pola\_bintang.py}}]
+"""Segitiga bintang dengan baris mengecil."""
+
+
+def main() -> None:
+    n = int(input("Masukan jumlah awal bintang : "))
+    for i in range(n, -1, -1):
+        for j in range(1, i + 1):
+            print("*", end="")
+        print()
+
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\subsection{Kode: \texttt{tabel\_pangkat\_x.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{tabel\_pangkat\_x.py}}]
+"""Tabel x, 1/x, x^2, x^3 untuk x = 1..10."""
+
+
+def main() -> None:
+    print("  x      1/x        x^2      x^3")
+    print("-----------------------------------")
+    x = 1
+    while x <= 10:
+        print(f"{x:5d}", end="")
+        print(f"{1.0 / x:8.5f}", end="")
+        pangkat = 2
+        while pangkat <= 3:
+            hasilpangkat = 1
+            for _i in range(1, pangkat + 1):
+                hasilpangkat *= x
+            print(f"{hasilpangkat:8d}", end="")
+            pangkat += 1
+        print()
+        x += 1
+
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\subsection{Kode: \texttt{cek\_tombol\_a.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{cek\_tombol\_a.py}}]
+"""Cek apakah pengguna menekan huruf A besar."""
+
+
+def main() -> None:
+    s = input("Masukkan Suatu Karakter :").strip()
+    a = s[0] if s else ""
+    print()
+    if a == "A":
+        print("Anda menekan A besar")
+    else:
+        print("Anda tidak menekan A besar")
+    input("Tekan Enter untuk melanjutkan...")
+
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\subsection{Kode: \texttt{rata\_rata\_data.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{rata\_rata\_data.py}}]
+"""Input N data dan hitung total serta rata-rata."""
+
+# Pascal tidak menginisialisasi Total; di Python mulai dari 0.0 agar benar.
+
+
+def main() -> None:
+    n = int(input("Banyaknya data : "))
+    total = 0.0
+    for i in range(1, n + 1):
+        data = float(input(f"Data ke {i} : "))
+        total += data
+    rata = total / n
+    print("Banyaknya Data       : ", n)
+    print("Total Nilai Data     : ", f"{total:5.2f}")
+    print("Rata-rata nilai Data : ", f"{rata:5.2f}")
+
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\subsection{Kode: \texttt{pangkat\_latihan.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{pangkat\_latihan.py}}]
+"""Latihan fungsi pangkat - isi fpangkat (stub)."""
+
+
+def fpangkat(dipangkatkan: float, pangkat: int) -> float:
+    # TODO: lengkapi (pahami pangkat_for / modul pangkat)
+    raise NotImplementedError("Lengkapi fpangkat seperti di modul Pascal.")
+
+
+def main() -> None:
+    dipangkatkan = float(input("Bilangan yang akan dipangkatkan : "))
+    pangkat = int(input("Masukkan pangkatnya : "))
+    try:
+        print(dipangkatkan, "^", pangkat, " : ", fpangkat(dipangkatkan, pangkat), sep="")
+    except NotImplementedError as e:
+        print(e)
+    input("Tekan Enter untuk melanjutkan...")
+
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\subsection{Kode: \texttt{balik\_bilangan.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{balik\_bilangan.py}}]
+"""Mencetak digit bilangan dari belakang (mod/div)."""
+
+
+def main() -> None:
+    i = 2345
+    print("Bilangan : ", i)
+    print("Dibalik  : ", end="")
+    while i != 0:
+        print(i % 10, end="")
+        i //= 10
+
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\section{Referensi sesi}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{[16]} W3Schools, \textit{Python Tutorial}.
+  \item \textbf{[17]} Programiz, \textit{Python Programming Tutorial}.
+  \item \textbf{[8, 9]} \textit{The Python Tutorial}, perulangan.
+\end{itemize}
+
 \begin{aktivitas}
   \item Cetak bilangan 1--100 yang habis dibagi 7 menggunakan \texttt{for}.
   \item Baca bilangan $n$, cetak faktorial $n!$ dengan \texttt{while} (asumsikan $n$ kecil).
@@ -205,13 +416,5 @@ Perulangan mengotomatisasi tugas berulang. \texttt{for} cocok untuk iterasi terk
 
 \textbf{Kata kunci:} \code{for}, \code{while}, \code{range}, \code{break}, \code{continue}, \code{else}, \code{pass}
 \end{rangkuman}
-
-\section{Referensi sesi}
-
-\begin{itemize}[leftmargin=*]
-  \item \textbf{[16]} W3Schools, \textit{Python Tutorial}.
-  \item \textbf{[17]} Programiz, \textit{Python Programming Tutorial}.
-  \item \textbf{[8, 9]} \textit{The Python Tutorial}, perulangan.
-\end{itemize}
 
 \end{document}

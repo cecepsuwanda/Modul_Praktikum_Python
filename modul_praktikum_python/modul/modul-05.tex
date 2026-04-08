@@ -176,6 +176,104 @@ ubah_lokal()
 print("Di luar fungsi:", x)   # masih 10
 \end{lstlisting}
 
+\section{Studi Kasus dan Contoh Kode}
+
+Berikut adalah contoh-contoh program Python yang mengimplementasikan konsep-konsep pada modul ini.
+
+\subsection{Kode: \texttt{faktorial.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{faktorial.py}}]
+"""Faktorial rekursif (rumus Pascal sumber salah; di Python dipakai n * fakt(n-1))."""
+
+
+def fakt(n: int) -> int:
+    if n == 0:
+        return 1
+    return n * fakt(n - 1)
+
+
+def main() -> None:
+    n = int(input("Masukkan n : "))
+    print(n, "! = ", fakt(n), sep="")
+
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\subsection{Kode: \texttt{prosedur\_upah\_latihan.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{prosedur\_upah\_latihan.py}}]
+"""Latihan prosedur/fungsi upah - modul Pascal tidak lengkap; stub di Python."""
+
+
+def input_pegawai(nama: str, gol: str, jml_anak: int) -> None:
+    # TODO: definisikan sendiri (parameter seharusnya diisi via input)
+    raise NotImplementedError("Lengkapi input_pegawai.")
+
+
+def upah_kotor(gol: str) -> float:
+    # TODO: definisikan sendiri
+    raise NotImplementedError("Lengkapi upah_kotor.")
+
+
+def persen_tunjangan(jml_anak: int) -> float:
+    # TODO: definisikan sendiri
+    raise NotImplementedError("Lengkapi persen_tunjangan.")
+
+
+def main() -> None:
+    print(
+        "Modul latihan: lengkapi deklarasi variabel dan fungsi seperti di modul Pascal."
+    )
+    try:
+        # Contoh alur yang dimaksud Pascal (setelah variabel didefinisikan):
+        # input(...); upah_bersih = upah_kotor(gol) - (upah_kotor(gol) * persen_tunjangan(jml_anak))
+        raise NotImplementedError("Definisikan Nama, Gol, jml_anak lalu panggil fungsi.")
+    except NotImplementedError as e:
+        print(e)
+
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\subsection{Kode: \texttt{tabel\_latihan.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{tabel\_latihan.py}}]
+"""Latihan tabel pangkat - lengkapi fpangkat dan cetak (stub, setara tabel_latihan.pas)."""
+
+
+def fpangkat(dipangkatkan: float, pangkat: int) -> float:
+    # TODO: lengkapi (dipakai di dalam cetak bila perlu)
+    raise NotImplementedError("Lengkapi fpangkat.")
+
+
+def cetak(x: int) -> None:
+    # TODO: lengkapi isi tabel seperti tabel_pangkat_x
+    print("  x      1/x        x^2      x^3")
+    print("-----------------------------------")
+    raise NotImplementedError("Lengkapi badan cetak(x).")
+
+
+def main() -> None:
+    x = int(input("Masukkan banyaknya data : "))
+    try:
+        cetak(x)
+    except NotImplementedError as e:
+        print(e)
+    input("Tekan Enter untuk melanjutkan...")
+
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\section{Referensi sesi}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{[12]} Sweigart, A. \textit{Automate the Boring Stuff with Python}.
+  \item \textbf{[14]} Pilgrim, M. \textit{Dive Into Python 3}.
+  \item \textbf{[8, 9]} \textit{The Python Tutorial}, definisi fungsi.
+\end{itemize}
+
 \begin{aktivitas}
   \item Tulis fungsi \texttt{diskon(harga, persen=10)} yang mengembalikan harga setelah diskon (dengan nilai default 10\%).
   \item Tulis fungsi \texttt{faktorial(n)} rekursif atau iteratif; bandingkan keterbacaan keduanya.
@@ -245,13 +343,5 @@ Fungsi meningkatkan keterbacaan, pengujian, dan penggunaan ulang kode. Python me
 
 \textbf{Kata kunci:} \code{def}, \code{return}, \code{lambda}, \code{*args}, \code{**kwargs}, \code{docstring}, \code{type hints}, ruang lingkup lokal
 \end{rangkuman}
-
-\section{Referensi sesi}
-
-\begin{itemize}[leftmargin=*]
-  \item \textbf{[12]} Sweigart, A. \textit{Automate the Boring Stuff with Python}.
-  \item \textbf{[14]} Pilgrim, M. \textit{Dive Into Python 3}.
-  \item \textbf{[8, 9]} \textit{The Python Tutorial}, definisi fungsi.
-\end{itemize}
 
 \end{document}

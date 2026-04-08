@@ -46,6 +46,43 @@ for x in countdown(3):
     print(x)
 \end{lstlisting}
 
+\section{Studi Kasus dan Contoh Kode}
+
+Berikut adalah contoh-contoh program Python yang mengimplementasikan konsep-konsep pada modul ini.
+
+\subsection{Kode: \texttt{comprehension.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{comprehension.py}}]
+"""Contoh penggunaan list comprehension dan generator."""
+
+
+def deret_genap(batas: int):
+    """Generator yang menghasilkan bilangan genap hingga batas."""
+    for i in range(batas + 1):
+        if i % 2 == 0:
+            yield i
+
+def main() -> None:
+    # List comprehension
+    angka = [1, 2, 3, 4, 5]
+    kuadrat = [x**2 for x in angka if x % 2 != 0]
+    print(f"Kuadrat ganjil: {kuadrat}")
+    
+    # Generator
+    genap = deret_genap(10)
+    print("Deret genap 0-10:", list(genap))
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\section{Referensi sesi}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{[14]} Pilgrim, M. \textit{Dive Into Python 3} --- iterator dan generator.
+  \item \textbf{[8, 9]} \textit{The Python Tutorial} --- generator expressions.
+  \item \textbf{[19]} Real Python --- comprehension dan generator.
+\end{itemize}
+
 \begin{aktivitas}
   \item Dari list bilangan \texttt{data}, buat list baru berisi hanya bilangan positif ganjil memakai list comprehension.
   \item Buat dict comprehension yang memetakan huruf pertama kata ke panjang kata dari daftar string.
@@ -73,13 +110,5 @@ Comprehension memadatkan loop pembangun koleksi; generator menunda komputasi den
 
 \textbf{Kata kunci:} comprehension, generator, \code{yield}, iterator
 \end{rangkuman}
-
-\section{Referensi sesi}
-
-\begin{itemize}[leftmargin=*]
-  \item \textbf{[14]} Pilgrim, M. \textit{Dive Into Python 3} --- iterator dan generator.
-  \item \textbf{[8, 9]} \textit{The Python Tutorial} --- generator expressions.
-  \item \textbf{[19]} Real Python --- comprehension dan generator.
-\end{itemize}
 
 \end{document}

@@ -214,6 +214,54 @@ def cari_maks(daftar):
     return maks
 \end{lstlisting}
 
+\section{Studi Kasus dan Contoh Kode}
+
+Berikut adalah contoh-contoh program Python yang mengimplementasikan konsep-konsep pada modul ini.
+
+\subsection{Kode: \texttt{utilitas.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{utilitas.py}}]
+"""Modul utilitas contoh yang dapat diimpor atau dijalankan."""
+
+
+def sapa_pengguna(nama: str) -> str:
+    return f"Halo, {nama}! Selamat datang."
+
+def main() -> None:
+    # Blok ini digunakan untuk pengujian ketika dijalankan langsung
+    print("Menguji modul utilitas...")
+    print(sapa_pengguna("Budi"))
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\subsection{Kode: \texttt{program\_utama.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{program\_utama.py}}]
+"""Program utama yang mengimpor modul utilitas dan standar."""
+import random
+from utilitas import sapa_pengguna
+
+
+def main() -> None:
+    # Menggunakan fungsi dari modul buatan sendiri
+    pesan = sapa_pengguna("Siti")
+    print(pesan)
+    
+    # Menggunakan modul standar Python
+    angka_acak = random.randint(1, 100)
+    print(f"Angka keberuntungan Anda hari ini: {angka_acak}")
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\section{Referensi sesi}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{[8, 9]} \textit{The Python Tutorial} --- modul, \texttt{venv}, pustaka standar.
+  \item \textbf{[14]} \textit{Dive Into Python 3} --- impor dan struktur paket.
+\end{itemize}
+
 \begin{aktivitas}
   \item Buat skrip \texttt{utilitas.py} dengan beberapa fungsi utilitas, tambahkan \texttt{if \_\_name\_\_ == "\_\_main\_\_"} dengan pengujian fungsi, lalu impor fungsi tersebut dari skrip lain.
   \item Gunakan \texttt{dir()} dan \texttt{help()} di REPL untuk menjelajahi modul \texttt{random} dan temukan tiga fungsi yang belum Anda ketahui.
@@ -271,12 +319,5 @@ Modul menyusun kode besar menjadi unit yang dapat diimpor. Pola \texttt{if \_\_n
 
 \textbf{Kata kunci:} \code{import}, \code{\_\_name\_\_}, \code{dir()}, \code{help()}, \code{pip}, \code{venv}, \code{requirements.txt}, \code{PEP 8}
 \end{rangkuman}
-
-\section{Referensi sesi}
-
-\begin{itemize}[leftmargin=*]
-  \item \textbf{[8, 9]} \textit{The Python Tutorial} --- modul, \texttt{venv}, pustaka standar.
-  \item \textbf{[14]} \textit{Dive Into Python 3} --- impor dan struktur paket.
-\end{itemize}
 
 \end{document}

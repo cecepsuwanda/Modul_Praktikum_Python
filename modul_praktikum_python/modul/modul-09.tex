@@ -62,6 +62,50 @@ class Admin(Pengguna):
         return f"{self.username} (admin level {self.level})"
 \end{lstlisting}
 
+\section{Studi Kasus dan Contoh Kode}
+
+Berikut adalah contoh-contoh program Python yang mengimplementasikan konsep-konsep pada modul ini.
+
+\subsection{Kode: \texttt{kendaraan.py}}
+\begin{lstlisting}[language=Python,caption={\texttt{kendaraan.py}}]
+"""Contoh kelas dasar dan pewarisan."""
+
+
+class Kendaraan:
+    def __init__(self, merk: str, tahun: int) -> None:
+        self.merk = merk
+        self.tahun = tahun
+
+    def info(self) -> str:
+        return f"{self.merk} ({self.tahun})"
+
+class Mobil(Kendaraan):
+    def __init__(self, merk: str, tahun: int, jumlah_pintu: int) -> None:
+        super().__init__(merk, tahun)
+        self.jumlah_pintu = jumlah_pintu
+
+    def info(self) -> str:
+        dasar = super().info()
+        return f"{dasar} - {self.jumlah_pintu} pintu"
+
+def main() -> None:
+    v1 = Kendaraan("Yamaha", 2015)
+    v2 = Mobil("Toyota", 2022, 4)
+    print(v1.info())
+    print(v2.info())
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\section{Referensi sesi}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{[13]} Downey, A. B. \textit{Think Python, 2e} --- bab berorientasi objek.
+  \item \textbf{[19]} Real Python --- tutorial kelas dan OOP Python 3.
+  \item \textbf{[8, 9]} \textit{The Python Tutorial} (docs.python.org) --- kelas.
+\end{itemize}
+
 \begin{aktivitas}
   \item Buat kelas \texttt{Produk} dengan atribut \texttt{nama}, \texttt{harga}, dan metode \texttt{ringkasan()} yang mengembalikan string deskriptif.
   \item Buat kelas \texttt{ProdukDiskon} yang mewarisi \texttt{Produk} dan\newline menambah atribut \texttt{persen\_diskon}; timpa \texttt{ringkasan()} agar menyebut harga setelah diskon.
@@ -91,13 +135,5 @@ Bab ini memperkenalkan OOP dasar: kelas, objek, \texttt{\_\_init\_\_}, metode, d
 
 \textbf{Kata kunci:} \code{class}, \code{self}, \code{super()}, pewarisan
 \end{rangkuman}
-
-\section{Referensi sesi}
-
-\begin{itemize}[leftmargin=*]
-  \item \textbf{[13]} Downey, A. B. \textit{Think Python, 2e} --- bab berorientasi objek.
-  \item \textbf{[19]} Real Python --- tutorial kelas dan OOP Python 3.
-  \item \textbf{[8, 9]} \textit{The Python Tutorial} (docs.python.org) --- kelas.
-\end{itemize}
 
 \end{document}
