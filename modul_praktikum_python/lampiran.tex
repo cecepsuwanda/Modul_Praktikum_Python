@@ -17,9 +17,9 @@
 
 Kebenaran program & 40\% & Program berjalan sesuai spesifikasi; tidak ada kesalahan sintaks yang fatal \\
 \hline
-Struktur kode & 25\% & Pemakaian fungsi/struktur kontrol wajar; tidak ada duplikasi berlebihan \\
+Struktur kode & 25\% & Pemakaian fungsi/struktur kontrol wajar; tidak ada duplikasi berlebihan; pada tugas lanjut: jejak tes, \texttt{logging}, atau anotasi tipe bila diminta modul \\
 \hline
-Gaya dan dokumentasi & 15\% & Penamaan jelas; komentar pada bagian non-trivial \\
+Gaya dan dokumentasi & 15\% & Penamaan jelas; komentar pada bagian non-trivial; proyek akhir memuat \texttt{README} dan dependensi/kemasan sesuai petunjuk \\
 \hline
 Laporan / log & 20\% & Langkah jelas; screenshot atau cuplikan output sesuai permintaan \\
 \hline
@@ -49,19 +49,39 @@ Sumber berikut mendukung penyusunan modul ini (lihat juga berkas \texttt{sumber\
   \item Programiz. \textit{Python Programming Tutorial}. \url{https://www.programiz.com/python-programming}
   \item LearnPython.org. \url{https://www.learnpython.org/}
   \item Real Python. \url{https://realpython.com/}
+  \item Python Software Foundation. \textit{The Python Standard Library}. \url{https://docs.python.org/3/library/index.html}
+  \item Python Software Foundation. \textit{The Python Language Reference}. \url{https://docs.python.org/3/reference/index.html}
+  \item Python Software Foundation. \textit{Functional Programming HOWTO}. \url{https://docs.python.org/3/howto/functional.html}
+  \item Python Software Foundation. \textit{Logging HOWTO}. \url{https://docs.python.org/3/howto/logging.html}
+  \item Python Software Foundation. \texttt{unittest} --- \textit{unit testing framework}. \url{https://docs.python.org/3/library/unittest.html}
+  \item pytest Development Team. \textit{pytest documentation}. \url{https://docs.pytest.org/}
+  \item Python Software Foundation. \texttt{typing} --- \textit{Support for type hints}. \url{https://docs.python.org/3/library/typing.html}
+  \item Typing documentation (mypy docs --- referensi praktis sistem tipe). \url{https://typing.readthedocs.io/}
+  \item Python Software Foundation. \texttt{asyncio} --- \textit{Asynchronous I/O}. \url{https://docs.python.org/3/library/asyncio.html}
+  \item Python Software Foundation. \texttt{concurrent.futures}. \url{https://docs.python.org/3/library/concurrent.futures.html}
+  \item Python Software Foundation. \texttt{threading} / \texttt{multiprocessing}. \url{https://docs.python.org/3/library/threading.html} dan \url{https://docs.python.org/3/library/multiprocessing.html}
+  \item Python Packaging Authority. \textit{Python Packaging User Guide}. \url{https://packaging.python.org/}
+  \item Python Software Foundation. \textit{Extending and Embedding the Python Interpreter}. \url{https://docs.python.org/3/extending/index.html}
+  \item Python Software Foundation. \textit{Python/C API Reference Manual}. \url{https://docs.python.org/3/c-api/index.html}
+  \item The NumPy community. \textit{NumPy documentation}. \url{https://numpy.org/doc/stable/}
+  \item pandas development team. \textit{pandas documentation}. \url{https://pandas.pydata.org/docs/}
+  \item FastAPI. \textit{Documentation}. \url{https://fastapi.tiangolo.com/}
+  \item Python Software Foundation. \texttt{contextlib} --- \textit{Utilities for with-statement contexts}. \url{https://docs.python.org/3/library/contextlib.html}
+  \item Pallets. \textit{Flask documentation}. \url{https://flask.palletsprojects.com/}
 \end{enumerate}
 
 \section*{C. Evaluasi Akhir dan Integrasi Kompetensi}
 
-Untuk menilai pencapaian secara menyeluruh, dosen dapat menggabungkan: (1) portofolio tugas praktikum per modul; (2) ujian praktikum tengah dan akhir sesuai RPS \textbf{TIF-105}; (3) mini-proyek akhir yang memadukan struktur kontrol, fungsi, struktur data, akses berkas, serta (opsional) OOP dan tes. Rubrik komprehensif memetakan indikator ke Sub-CPMK pada \texttt{silabus\_praktikum\_python.tex}.
+Untuk menilai pencapaian secara menyeluruh, dosen dapat menggabungkan: (1) portofolio tugas praktikum per modul; (2) ujian praktikum tengah dan akhir sesuai RPS \textbf{TIF-105}; (3) mini-proyek akhir yang memadukan struktur kontrol, fungsi, struktur data, akses berkas, OOP/tes, serta elemen \textbf{CPMK-8} (kemasan, \textit{logging}/kualitas operasional, konkurensi ringan) dan \textbf{CPMK-9} (\texttt{numpy}/\texttt{pandas}) sesuai Bab penutup. Rubrik komprehensif memetakan indikator ke Sub-CPMK pada \texttt{silabus\_praktikum\_python.tex}.
 
 \section*{D. Komponen Penilaian Semester (selaras RPS TIF-105)}
 
+\begin{center}
 \begin{tabular}{|l|c|p{7cm}|}
 \hline
 \textbf{Komponen} & \textbf{Bobot} & \textbf{Catatan / pemetaan} \\
 \hline
-Tugas praktikum mingguan & 28\% & CPMK-1 s.d. CPMK-7 sesuai minggu \\
+Tugas praktikum mingguan & 28\% & CPMK-1 s.d. CPMK-9 sesuai minggu (jejak 8--9 pada sesi 12--13 dan tugas lanjutan) \\
 \hline
 Laporan / log praktikum & 17\% & Bukti Sub-CPMK; format sesuai dosen \\
 \hline
@@ -69,11 +89,12 @@ Kinerja dan rubrik sesi & 10\% & Sikap, K3, partisipasi (CPL-4); observasi lab \
 \hline
 Ujian praktikum tengah & 20\% & CPMK-1--4; Minggu 14 \\
 \hline
-Ujian praktikum akhir / proyek & 25\% & CPMK-5--7; integrasi; Minggu 15--16 \\
+Ujian praktikum akhir / proyek & 25\% & CPMK-5--9; integrasi; Minggu 15--16 \\
 \hline
 \textbf{Jumlah} & \textbf{100\%} & \\
 \hline
 \end{tabular}
+\end{center}
 
 \section*{E. Lembar Observasi Asisten (contoh)}
 

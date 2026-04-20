@@ -142,6 +142,17 @@ print(terurut)   # [9, 8, 5, 3, 2, 1]
 Lambda terbatas pada \textbf{satu ekspresi}. Untuk logika yang lebih kompleks, gunakan fungsi biasa dengan \keyword{def}. Lambda paling berguna saat dipakai sebagai argumen pada fungsi seperti \texttt{sorted()}, \texttt{map()}, \texttt{filter()}.
 \end{konsep}
 
+\section{Contoh tambahan: operator walrus (\texttt{:=})}
+
+\noindent Python 3.8+ memperkenalkan operator penugasan ekspresi (\textit{walrus}) yang memadukan penilaian dan penugasan; berguna saat Anda ingin menyimpan hasil sambil menguji kondisi. Ringkasan sintaks pada \href{https://docs.python.org/3/whatsnew/3.8.html}{What's New 3.8} dan tutorial kontrol alur (lampiran \textbf{[8]}).
+
+\begin{lstlisting}[caption=Walrus pada kondisi while]
+n = 0
+while (baris := input("Ketik 'selesai' untuk berhenti: ")) != "selesai":
+    n += 1
+    print(f"Baris ke-{n}: {baris!r}")
+\end{lstlisting}
+
 \section{Anotasi Fungsi (Type Hints)}
 
 Python mendukung anotasi tipe untuk mendokumentasikan tipe parameter dan nilai balik (Tutorial Python §4.9.8). Anotasi tidak mempengaruhi eksekusi program, tetapi membantu pembaca dan alat analisis statis:
@@ -181,6 +192,7 @@ print("Di luar fungsi:", x)   # masih 10
 Berikut adalah contoh-contoh program Python yang mengimplementasikan konsep-konsep pada modul ini.
 
 \subsection{Kode: \texttt{faktorial.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{faktorial.py}}]
 """Faktorial rekursif (rumus Pascal sumber salah; di Python dipakai n * fakt(n-1))."""
 
@@ -201,6 +213,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{prosedur\_upah\_latihan.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{prosedur\_upah\_latihan.py}}]
 """Latihan prosedur/fungsi upah - modul Pascal tidak lengkap; stub di Python."""
 
@@ -237,6 +250,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{tabel\_latihan.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{tabel\_latihan.py}}]
 """Latihan tabel pangkat - lengkapi fpangkat dan cetak (stub, setara tabel_latihan.pas)."""
 

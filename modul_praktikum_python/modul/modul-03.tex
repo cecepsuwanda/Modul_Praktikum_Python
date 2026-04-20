@@ -127,11 +127,24 @@ match kode_status:
 \texttt{match} lebih ekspresif daripada rantai \texttt{if/elif} saat mencocokkan satu variabel dengan banyak nilai tetap. Namun \texttt{if/elif} tetap diperlukan untuk kondisi dengan ekspresi boolean yang lebih kompleks (misalnya rentang nilai).
 \end{konsep}
 
+\section{Contoh tambahan: \texttt{input} angka dengan penanganan sederhana}
+
+\noindent Karena \texttt{input()} mengembalikan \texttt{str}, konversi ke \texttt{int} dapat gagal jika pengguna mengetik bukan angka. Pola \texttt{try}/\texttt{except} minimal berikut mempersiapkan modul berkas nanti; lihat tutorial pengecualian (\href{https://docs.python.org/3/tutorial/errors.html}{Errors and Exceptions}, lampiran \textbf{[8]}).
+
+\begin{lstlisting}[caption=Konversi input dengan try/except ValueError]
+try:
+    x = int(input("Masukkan bilangan bulat: "))
+    print("Berhasil:", x)
+except ValueError:
+    print("Bukan bilangan bulat yang valid.")
+\end{lstlisting}
+
 \section{Studi Kasus dan Contoh Kode}
 
 Berikut adalah contoh-contoh program Python yang mengimplementasikan konsep-konsep pada modul ini.
 
 \subsection{Kode: \texttt{akar\_persamaan\_kuadrat.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{akar\_persamaan\_kuadrat.py}}]
 """Mencari akar persamaan kuadrat (rumus benar; kode Pascal sumber berisi typo)."""
 
@@ -174,6 +187,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{diskriminan\_kuadrat.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{diskriminan\_kuadrat.py}}]
 """Menentukan jenis akar persamaan kuadrat dari diskriminan."""
 
@@ -204,6 +218,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{cek\_huruf\_besar.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{cek\_huruf\_besar.py}}]
 """Cek apakah karakter termasuk huruf besar A..Z."""
 
@@ -226,6 +241,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{huruf\_mutu.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{huruf\_mutu.py}}]
 """Konversi nilai akhir ke huruf mutu A-E."""
 
@@ -261,6 +277,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{menu\_geometri\_case.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{menu\_geometri\_case.py}}]
 """Menu hitung kubus, luas lingkaran, isi silinder (satu kali pilihan)."""
 
@@ -292,6 +309,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{upah\_golongan.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{upah\_golongan.py}}]
 """Upah bersih dari golongan dan jumlah anak (perbaikan nama variabel vs Pascal)."""
 
@@ -326,6 +344,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{tunjangan\_dan\_potongan.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{tunjangan\_dan\_potongan.py}}]
 """Tunjangan dan potongan gaji berdasarkan jumlah anak."""
 
@@ -350,6 +369,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{tunjangan\_anak.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{tunjangan\_anak.py}}]
 """Hitung tunjangan berdasarkan gaji kotor dan jumlah anak."""
 

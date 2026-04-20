@@ -10,7 +10,7 @@ Bab ini merangkum Sub-CPMK yang telah dicakup, menghubungkan mahasiswa dengan \t
 
 \section{Rangkuman Sub-CPMK menurut CPMK}
 
-\begin{description}[style=nextline, widest=CPMK-7:, itemsep=0.35em]
+\begin{description}[style=nextline, widest=CPMK-9:, itemsep=0.35em]
   \item[CPMK-1:] Sub-CPMK 1.1--1.3 (lingkungan, sintaks dasar, I/O) --- Bab 1--2.
   \item[CPMK-2:] Sub-CPMK 2.1--2.2 (percabangan, perulangan) --- Bab 3--4.
   \item[CPMK-3:] Sub-CPMK 3.1--3.2 (fungsi, \textit{lambda}, \texttt{*args}) --- Bab 5.
@@ -18,17 +18,34 @@ Bab ini merangkum Sub-CPMK yang telah dicakup, menghubungkan mahasiswa dengan \t
   \item[CPMK-5:] Sub-CPMK 5.1--5.2 (berkas, JSON, pengecualian) --- Bab 7.
   \item[CPMK-6:] Sub-CPMK 6.1--6.2 (modul, \texttt{pip}, \texttt{venv}, debugging) --- Bab 8.
   \item[CPMK-7:] Sub-CPMK 7.1--7.3 (OOP, comprehension/generator, tes) --- Bab 9--11.
+  \item[CPMK-8:] Sub-CPMK 8.1--8.4 (anotasi tipe \& pemeriksa statis, \texttt{logging}, kemasan proyek ringan, konkurensi/asinkron minimal) --- Bab 10--11 (pengenalan 8.1--8.2), proyek Minggu 15 (8.3--8.4).
+  \item[CPMK-9:] Sub-CPMK 9.1 (\texttt{numpy}/\texttt{pandas} pada data kecil) --- proyek Minggu 15 dan latihan mandiri.
 \end{description}
 
 \section{Proyek integratif kecil (Minggu 15)}
 
-Usul topik (sesuaikan dengan dosen): aplikasi konsol/CLI sederhana yang memakai \textbf{input pengguna}, \textbf{struktur data} (\texttt{list}/\texttt{dict}), \textbf{fungsi}, \textbf{berkas atau JSON} ringkas, dan \textbf{penanganan kesalahan}. Kumpulkan kode + \texttt{README.md} singkat (cara menjalankan, dependensi, autor).
+Sesuai RPS (Sub-CPMK 8.3--8.4, 9.1), proyek akhir semester memadukan materi menengah dengan jejak lanjutan. \textbf{Syarat minimum} (sesuaikan detail dengan dosen):
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Inti aplikasi:} konsol/CLI atau skrip terstruktur dengan \textbf{input pengguna}, \textbf{struktur data} (\texttt{list}/\texttt{dict}), \textbf{fungsi}, \textbf{berkas atau JSON} ringkas, dan \textbf{penanganan kesalahan} (jejak CPMK-1--7).
+  \item \textbf{Sub-CPMK 8.3:} repositori/proyek rapi: \texttt{README.md}, \texttt{venv} atau instruksi setara.\newline
+    Berkas kemasan minimal: \texttt{pyproject.toml} dan/atau \texttt{requirements.txt} (sesuai kebijakan lab).
+  \item \textbf{Sub-CPMK 8.4:} satu pola konkurensi ringan (pilih salah satu sesuai petunjuk dosen):
+    \begin{itemize}[leftmargin=*]
+      \item modul \texttt{concurrent.futures} dengan salah satu eksekutor \texttt{ThreadPoolExecutor} atau\newline \texttt{ProcessPoolExecutor};
+      \item atau contoh \texttt{asyncio} minimal (satu \texttt{async def} dan \texttt{asyncio.run}) untuk I/O sederhana.
+    \end{itemize}
+    Bukan wajib skala produksi.
+  \item \textbf{Sub-CPMK 9.1:} satu modul analitik kecil memakai \texttt{numpy} dan/atau \texttt{pandas} pada dataset contoh (CSV kecil atau array buatan); sertakan cuplikan output atau ringkasan statistik di laporan.
+\end{itemize}
+
+\noindent Kumpulkan folder \texttt{NIM\_TIF105\_proyek/} berisi kode sumber, \texttt{README.md}, dan dependensi bila perlu. Rujuk lampiran untuk rubrik dan penamaan berkas.
 
 \section{Persiapan UTS dan UAS}
 
 \begin{itemize}[leftmargin=*]
   \item \textbf{UTS (Minggu 14):} fokus revisi CPMK-1 s.d. CPMK-4; latihan coding terbatas waktu tanpa bantuan AI generatif jika dilarang prodi.
-  \item \textbf{UAS (Minggu 16):} cakupan komprehensif termasuk CPMK-5--7; baca ulang checklist tiap bab.
+  \item \textbf{UAS (Minggu 16):} cakupan komprehensif \textbf{CPMK-5--9} (termasuk berkas/modul, OOP ringkas, gaya lanjut, kualitas operasional, dan jejak sains data sesuai silabus); baca ulang checklist Bab 7--12 dan ringkasan Sub-CPMK di atas.
 \end{itemize}
 
 \section{Refleksi mahasiswa}
@@ -47,13 +64,17 @@ Berikan masukan singkat kepada dosen/koordinator melalui formulir atau survei pr
 
 \begin{itemize}[leftmargin=*]
   \item \textbf{[11]} Severance, C. \textit{Python for Everybody} --- ide proyek dan integrasi konsep.
-  \item RPS resmi mata kuliah \texttt{silabus\_praktikum\_python.tex} pada repositori modul.
+  \item \textbf{[31]} Python Packaging User Guide --- \texttt{venv}, \texttt{pyproject.toml}, distribusi ringan.
+  \item \textbf{[28]} Dokumentasi \texttt{asyncio}; \textbf{[29]} \texttt{concurrent.futures} --- pola konkurensi/asinkron pengenalan.
+  \item \textbf{[34]} NumPy; \textbf{[35]} pandas --- manipulasi data kecil pada proyek.
+  \item RPS resmi mata kuliah: \path{silabus_praktikum_python.tex}.
+  \item Daftar rujukan tambahan: \path{sumber_materi.md} pada repositori modul.
 \end{itemize}
 
 \begin{rangkuman}
-Seri praktikum TIF-105 membentang dari dasar hingga lanjut; gunakan checklist per bab dan rubrik lampiran sebagai panduan bukti capaian OBE.
+Seri praktikum TIF-105 membentang dari dasar hingga jejak lanjutan (CPMK-8) dan pengenalan sains data (CPMK-9); gunakan checklist per bab dan rubrik lampiran sebagai panduan bukti capaian OBE.
 
-\textbf{Kata kunci:} rangkuman, proyek, UTS, UAS, refleksi
+\textbf{Kata kunci:} rangkuman, proyek, UTS, UAS, CPMK-8, CPMK-9, refleksi
 \end{rangkuman}
 
 \end{document}

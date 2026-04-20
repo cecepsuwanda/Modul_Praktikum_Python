@@ -9,6 +9,7 @@
 \begin{description}[style=nextline, widest=Dosen pengampu / koordinator praktikum:, itemsep=0.35em]
   \item[Nama mata kuliah:] Praktikum Pemrograman Python
   \item[Kode:] TIF-105
+  \item[Versi modul / revisi:] 2.0 / \ldots\ (sesuai persetujuan prodi; selaras RPS versi 2.0)
   \item[Bobot:] 1 SKS (seluruhnya praktikum; placeholder --- sesuaikan jika MK teori terpisah)
   \item[Program studi:] Teknik Informatika (S1) --- \textit{sesuaikan dengan prodi Anda}
   \item[Semester / tahun akademik:] \ldots
@@ -18,67 +19,122 @@
 
 \section{Deskripsi dan Ruang Lingkup}
 
-Modul praktikum ini adalah sumber belajar untuk mencapai \textbf{CPMK} dan \textbf{Sub-CPMK} mata kuliah praktikum Python berbasis \textbf{Outcome-Based Education (OBE)}. Cakupan materi: lingkungan Python 3, sintaks dasar, struktur kontrol, fungsi, struktur data, berkas dan JSON, modul serta \texttt{pip}/\texttt{venv}, debugging, dilanjutkan topik lanjut (OOP dasar, \textit{comprehension}/\textit{generator}, pengujian unit pengenalan). Setiap bab memetakan aktivitas, tugas, dan asesmen formatif ke capaian yang terukur.
+Modul praktikum ini adalah sumber belajar untuk mencapai \textbf{CPL}, \textbf{CPMK}, dan \textbf{Sub-CPMK} mata kuliah praktikum Python berbasis \textbf{Outcome-Based Education (OBE)}, selaras berkas \path{silabus_praktikum_python.tex} dan kerangka \path{struktur_modul_praktikum_OBE.text}. Cakupan \textbf{bertingkat}: \textit{(dasar)} lingkungan Python 3, sintaks, kontrol alur, fungsi; \textit{(menengah)} struktur data, berkas/JSON, modul, \texttt{pip}/\texttt{venv}, penanganan kesalahan, OOP dasar; \textit{(lanjut)} \textit{comprehension}/\textit{generator}, pengujian, anotasi tipe dan pemeriksa statis, \textit{logging}, kemasan proyek ringan, konkurensi/asinkron pengenalan; \textit{(jejak sains data)} \texttt{numpy}/\texttt{pandas} pada dataset kecil. Setiap bab memetakan aktivitas, tugas, dan asesmen formatif ke capaian terukur.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.42\textwidth]{python-logo.png}
+\caption{Identitas visual komunitas Python (Python Software Foundation). Tutorial resmi bahasa Inggris dan Indonesia: \protect\url{https://docs.python.org/3/tutorial/index.html} dan \protect\url{https://docs.python.org/id/3/tutorial/index.html} --- entri \textbf{[8]} dan \textbf{[9]} pada berkas \texttt{sumber\_materi.md}.}
+\label{fig:logo-python}
+\end{figure}
+
+\section{Alur topik dan rujukan terbuka (ringkas)}
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{|>{\raggedright\arraybackslash}p{2.2cm}|>{\raggedright\arraybackslash}p{7.2cm}|>{\raggedright\arraybackslash}p{4.8cm}|}
+\hline
+\textbf{Tingkat} & \textbf{Fokus utama} & \textbf{Rujukan lampiran (contoh)} \\
+\hline
+Dasar & Instalasi, sintaks, kontrol alur, fungsi, algoritme ringkas & {[1]--[7]}, {[8]--[10]}, {[16]--[18]} \\
+\hline
+Menengah & Struktur data, modul, berkas/JSON, pengecualian, OOP, \texttt{venv}, \texttt{unittest} & {[8]--[9]}, {[11]--[14]}, {[20]}, {[24]} \\
+\hline
+Lanjutan & Generator, \texttt{contextlib}, tipe statis, \texttt{asyncio}, \texttt{logging}, kemasan & {[20]--[23]}, {[26]--[31]} \\
+\hline
+Sains data & \texttt{numpy}, \texttt{pandas}; opsional API web & {[34]--[35]}, {[36]} \\
+\hline
+\end{tabular}
+\caption{Alur kurikulum ringkas dan nomor daftar pustaka lampiran, selaras \texttt{sumber\_materi.md} bagian 1 dan 5.}
+\label{tab:alur-sumber}
+\end{table}
+
+\noindent Ringkasan pada tabel ini merangkum alur pembelajaran di \path{sumber_materi.md} (bagian 1) beserta nomor rujukan lampiran; gunakan sebagai peta baca mandiri di luar jadwal praktikum.
 
 \section{Capaian Pembelajaran Lulusan (CPL) yang Dibebankan}
 
 \begin{itemize}[leftmargin=*]
-  \item \textbf{CPL-1 (Pengetahuan):} Konsep algoritme, modularitas, struktur data, dan penanganan data/berkas dalam Python.
-  \item \textbf{CPL-2 (Keterampilan umum):} Pemikiran logis, sistematis, dan kritis dalam merancang, mengimplementasikan, serta menguji program.
-  \item \textbf{CPL-3 (Keterampilan khusus):} Menulis, menguji, dan memperbaiki program Python dari skrip dasar hingga OOP sederhana dan pengujian unit pengenalan.
-  \item \textbf{CPL-4 (Sikap):} Tanggung jawab di laboratorium, K3, etika akademik, kolaborasi.
-  \item \textbf{CPL-5 (Profesionalisme praktis):} Lingkungan virtual, dependensi, \textit{debugging}, dokumentasi singkat.
+  \item \textbf{CPL-1 (Pengetahuan):} Menguasai konsep algoritme dan pemrograman prosedural serta prinsip modularitas, struktur data, penanganan data/berkas dalam konteks Python, dan \textbf{pengenalan} pola kerja kode yang mendekati praktik produksi (tipe statis, \textit{logging}, struktur paket).
+  \item \textbf{CPL-2 (Keterampilan umum):} Menerapkan pemikiran logis, sistematis, dan kritis dalam merancang, mengimplementasikan, serta menguji program Python untuk masalah komputasi, termasuk skenario I/O dan tugas ringan \textbf{konkuren/asinkron} pada tingkat pengenalan.
+  \item \textbf{CPL-3 (Keterampilan khusus):} Menulis, menguji, dan memperbaiki program Python mulai dari skrip dasar hingga struktur berorientasi objek sederhana, penggunaan pustaka standar, pengujian unit tingkat pengenalan, serta \textbf{pengenalan} manipulasi data numerik/tabular dengan pustaka ilmiah umum.
+  \item \textbf{CPL-4 (Sikap):} Menunjukkan tanggung jawab di laboratorium, mematuhi K3 dan etika akademik (lisensi perangkat lunak, kejujuran tugas), serta mampu berkolaborasi saat tugas kelompok.
+  \item \textbf{CPL-5 (Pengetahuan / profesionalisme praktis):} Memahami praktik pengelolaan lingkungan virtual, dependensi, kualitas kode (\textit{debugging}, dokumentasi singkat), \textbf{pengenalan} anotasi tipe dan alat pemeriksa, \textit{logging} terstruktur, serta kebijakan kemasan proyek kecil sebagai dasar kerja profesional.
 \end{itemize}
 
 \section{Capaian Pembelajaran Mata Kuliah (CPMK)}
 
 \begin{itemize}[leftmargin=*]
-  \item \textbf{CPMK-1:} Lingkungan Python 3, sintaks dasar, identifier, tipe data, operator, I/O.
-  \item \textbf{CPMK-2:} Percabangan dan perulangan (\texttt{match} pengenalan).
-  \item \textbf{CPMK-3:} Fungsi, parameter, \texttt{*args}/\texttt{**kwargs}, \textit{lambda}, anotasi tipe dasar.
-  \item \textbf{CPMK-4:} Struktur data dan pemrosesan string lanjut.
-  \item \textbf{CPMK-5:} Berkas teks, JSON, penanganan kesalahan (\texttt{try}/\texttt{except}/\ldots).
-  \item \textbf{CPMK-6:} Modul, \texttt{pip}, \texttt{venv}, debugging, gaya kode.
-  \item \textbf{CPMK-7:} OOP dasar, \textit{comprehension}/\textit{generator}, \texttt{unittest}/\texttt{pytest} pengenalan.
+  \item \textbf{CPMK-1:} Mahasiswa mampu menyiapkan lingkungan Python 3, memahami sintaks dasar, identifier, tipe data, operator, serta masukan/keluaran konsol.
+  \item \textbf{CPMK-2:} Mahasiswa mampu merancang alur program dengan percabangan dan perulangan, termasuk pola bercabang dan penggunaan \texttt{match} pada tingkat pengenalan.
+  \item \textbf{CPMK-3:} Mahasiswa mampu memecah program menjadi fungsi yang dapat digunakan kembali, memahami parameter, nilai balik, \texttt{*args}/\texttt{**kwargs}, \textit{lambda}, dan anotasi tipe dasar.
+  \item \textbf{CPMK-4:} Mahasiswa mampu menggunakan struktur data (\texttt{list}, \texttt{tuple}, \texttt{dict}, \texttt{set}) dan pemrosesan string lanjut untuk manipulasi data.
+  \item \textbf{CPMK-5:} Mahasiswa mampu membaca/menulis berkas teks, bekerja dengan JSON sederhana, dan menerapkan penanganan kesalahan dengan \texttt{try}/\texttt{except}/\texttt{else}/\texttt{finally}.
+  \item \textbf{CPMK-6:} Mahasiswa mampu mengorganisasi kode dengan modul, mengelola paket menggunakan \texttt{pip}, menggunakan \texttt{venv}, serta melakukan \textit{debugging} dan penerapan gaya kode konsisten.
+  \item \textbf{CPMK-7:} Mahasiswa mampu menerapkan konsep lanjut berupa kelas dan pewarisan dasar, \textit{comprehension}/\textit{generator}, serta pengujian unit tingkat pengenalan (\texttt{unittest} atau \texttt{pytest}).
+  \item \textbf{CPMK-8:} Mahasiswa mampu pada tingkat \textbf{pengenalan} laboratorium: menerapkan anotasi tipe dan pemeriksaan statis dasar, \textit{logging} terstruktur, struktur paket sederhana berbasis \texttt{pyproject.toml}/\texttt{venv}, serta satu pola eksekusi konkuren ringan (\texttt{concurrent.futures} atau \texttt{asyncio}).
+  \item \textbf{CPMK-9:} Mahasiswa mampu memuat dan memanipulasi data numerik/tabular sederhana menggunakan \texttt{numpy} dan \texttt{pandas} (operasi dasar pada satu \textit{dataset} kecil).
 \end{itemize}
 
-\section{Pemetaan Sub-CPMK ke CPMK}
+\section{Pemetaan Sub-CPMK ke CPMK (rentang indikator)}
 
 {\small
-\begin{tabular}{|p{7.8cm}|c|}
+\noindent Rumusan lengkap setiap kode Sub-CPMK mengikuti RPS (\texttt{silabus\_praktikum\_python.tex}, Bagian C.4). Tabel berikut merangkum jejak bukti ke CPMK.
+
+\begin{tabular}{|p{9.6cm}|c|}
 \hline
-\textbf{Sub-CPMK (indikator)} & \textbf{CPMK} \\
+\textbf{Rentang indikator Sub-CPMK} & \textbf{CPMK} \\
 \hline
-1.1 Menjalankan Python, skrip, notebook; 1.2 Identifier, variabel, tipe; 1.3 Operator, I/O & 1 \\
+1.1--1.3 & 1 \\
 \hline
-2.1 Percabangan; 2.2 Perulangan & 2 \\
+2.1--2.2 & 2 \\
 \hline
-3.1 Fungsi dasar; 3.2 \texttt{*args}/\texttt{**kwargs}, \textit{lambda}, type hints & 3 \\
+3.1--3.2 & 3 \\
 \hline
-4.1 Struktur data lanjut; 4.2 String lanjut & 4 \\
+4.1--4.2 & 4 \\
 \hline
-5.1 Berkas teks; 5.2 JSON dan pengecualian lanjut & 5 \\
+5.1--5.2 & 5 \\
 \hline
-6.1 Modul, \texttt{pip}, \texttt{venv}; 6.2 Debugging, gaya & 6 \\
+6.1--6.2 & 6 \\
 \hline
-7.1 OOP dasar; 7.2 Comprehension/generator; 7.3 Unit test & 7 \\
+7.1--7.3 & 7 \\
+\hline
+8.1--8.4 & 8 \\
+\hline
+9.1 & 9 \\
 \hline
 \end{tabular}
 }
 
-\section{Matriks CPMK ke CPL (ringkas)}
+\section{Matriks CPMK ke CPL (selaras RPS)}
 
-{\small
+{\footnotesize
 \begin{tabular}{|l|c|c|c|c|c|}
 \hline
-\textbf{CPMK} & \textbf{C1} & \textbf{C2} & \textbf{C3} & \textbf{C4} & \textbf{C5} \\
+\textbf{CPMK} & \textbf{CPL-1} & \textbf{CPL-2} & \textbf{CPL-3} & \textbf{CPL-4} & \textbf{CPL-5} \\
 \hline
-1--7 & $\checkmark$ & $\checkmark$ & $\checkmark$ & bervariasi & bervariasi \\
+CPMK-1 & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
+\hline
+CPMK-2 & $\checkmark$ & $\checkmark$ & $\checkmark$ & & \\
+\hline
+CPMK-3 & $\checkmark$ & $\checkmark$ & $\checkmark$ & & $\checkmark$ \\
+\hline
+CPMK-4 & $\checkmark$ & $\checkmark$ & $\checkmark$ & & \\
+\hline
+CPMK-5 & $\checkmark$ & $\checkmark$ & $\checkmark$ & & \\
+\hline
+CPMK-6 & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
+\hline
+CPMK-7 & $\checkmark$ & $\checkmark$ & $\checkmark$ & & $\checkmark$ \\
+\hline
+CPMK-8 & $\checkmark$ & $\checkmark$ & $\checkmark$ & & $\checkmark$ \\
+\hline
+CPMK-9 & $\checkmark$ & $\checkmark$ & $\checkmark$ & & \\
 \hline
 \end{tabular}
 }
 
-\noindent\textit{Catatan:} C1--C5 menyamai CPL-1--CPL-5; tanda $\checkmark$ pada baris tunggal menandakan semua CPMK berkontribusi pada capaian tersebut dengan bobot berbeda; detail penilaian di RPS dan rubrik lampiran.
+\noindent\textit{Catatan:} matriks ini selaras Bagian C.2.1 RPS TIF-105; detail penilaian pada rubrik lampiran dan tabel asesmen semester.
 
 \section{Keterkaitan dengan Rencana Pembelajaran Semester (RPS)}
 
@@ -119,15 +175,15 @@ Acuan waktu per sesi praktikum mengikuti RPS TIF-105: \textbf{$\sim$170 menit} p
 \hline
 11 & 7.1 & 9 & OOP dasar & $\sim$170' \\
 \hline
-12 & 7.2 & 10 & Comprehension, generator & $\sim$170' \\
+12 & 7.2, 8.1 & 10 & Comprehension, generator; anotasi tipe \& pemeriksa statis & $\sim$170' \\
 \hline
-13 & 7.3 & 11 & Unit testing & $\sim$170' \\
+13 & 7.3, 8.2 & 11 & Unit testing; \textit{logging} terstruktur & $\sim$170' \\
 \hline
-14 & UTS & --- & Ujian tengah & $\sim$170' \\
+14 & UTS & --- & Ujian tengah (fokus CPMK-1--4) & $\sim$170' \\
 \hline
-15 & Proyek & 12 & Proyek integratif & $\sim$170' \\
+15 & 8.3--8.4, 9.1, lintas & 12 & Proyek integratif: kemasan, konkurensi ringan, \texttt{numpy}/\texttt{pandas} & $\sim$170' \\
 \hline
-16 & UAS & --- & Ujian akhir & $\sim$170' \\
+16 & UAS & --- & Ujian akhir (CPMK-5--9) & $\sim$170' \\
 \hline
 \end{longtable}%
 \endgroup
@@ -165,6 +221,19 @@ Setelah menyelesaikan rangkaian bab dan tugas, mahasiswa diharapkan mampu:
   \item Mengimplementasikan algoritme dengan percabangan, perulangan, dan fungsi untuk masalah sederhana hingga menengah.
   \item Menggunakan struktur data, string, berkas, JSON, modul, dan lingkungan virtual pada tugas praktis.
   \item Menerapkan OOP dasar, gaya idiomatik (\textit{comprehension}/\textit{generator}), dan tes unit pengenalan.
+  \item Mendemonstrasikan pengenalan anotasi tipe, pemeriksa statis, \textit{logging}, kemasan proyek ringan, dan satu pola konkurensi/asinkron sesuai Sub-CPMK 8.x.
+  \item Memuat dan memanipulasi data kecil dengan \texttt{numpy}/\texttt{pandas} pada tingkat pengenalan (Sub-CPMK 9.1).
+\end{itemize}
+
+\section{Checklist selaras SN-Dikti (redaksi modul)}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Standar isi:} materi relevan dengan capaian kurikulum dan perkembangan IPTEKS; tidak hanya prosedur tanpa capaian.
+  \item \textbf{Standar proses:} pengalaman belajar mahasiswa jelas (student-centered); urutan bab selaras RPS.
+  \item \textbf{Standar penilaian:} rubrik dan instrumen terhubung Sub-CPMK/CPMK; konsisten dengan RPS TIF-105.
+  \item \textbf{Standar sarana/prasarana:} kebutuhan lab realistis; alternatif jika fasilitas terbatas ditetapkan prodi.
+  \item \textbf{Mutu dokumen:} versi/tanggal revisi dicatat pada identitas modul; peninjauan berkala.
+  \item \textbf{Dokumentasi OBE:} setiap bab menunjuk rantai Sub-CPMK $\rightarrow$ CPMK $\rightarrow$ CPL melalui kotak capaian, sesi, dan asesmen formatif.
 \end{itemize}
 
 \section{Keterkaitan dengan RPS Berbasis OBE}

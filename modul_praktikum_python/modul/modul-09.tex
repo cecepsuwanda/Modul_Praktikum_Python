@@ -62,11 +62,34 @@ class Admin(Pengguna):
         return f"{self.username} (admin level {self.level})"
 \end{lstlisting}
 
+\section{Contoh tambahan: properti dengan \texttt{@property}}
+
+\noindent \textit{Property} memungkinkan metode akses diakses seperti atribut, menjaga enkapsulasi ringan. Pola ini dibahas pada tutorial kelas (\href{https://docs.python.org/3/tutorial/classes.html}{Classes}, lampiran \textbf{[8]}) dan sering dipakai bersama pewarisan.
+
+\begin{lstlisting}[caption=Getter sederhana dengan property]
+class Lingkaran:
+    def __init__(self, radius: float) -> None:
+        self._radius = radius
+
+    @property
+    def radius(self) -> float:
+        return self._radius
+
+    @property
+    def luas(self) -> float:
+        return 3.14159 * self._radius**2
+
+
+c = Lingkaran(2.0)
+print(c.radius, c.luas)
+\end{lstlisting}
+
 \section{Studi Kasus dan Contoh Kode}
 
 Berikut adalah contoh-contoh program Python yang mengimplementasikan konsep-konsep pada modul ini.
 
 \subsection{Kode: \texttt{kendaraan.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{kendaraan.py}}]
 """Contoh kelas dasar dan pewarisan."""
 

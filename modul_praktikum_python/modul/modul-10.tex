@@ -6,13 +6,14 @@
 
 \begin{subcpmk}
   \item Sub-CPMK 7.2: Menulis list/dict/set comprehension dan fungsi generator sederhana dengan \texttt{yield}\newline untuk menghasilkan deret data secara hemat memori
+  \item Sub-CPMK 8.1: Menulis anotasi tipe pada fungsi/modul kecil dan menjalankan pemeriksa statis (\texttt{mypy} atau setara) pada contoh kode sesi ini
 \end{subcpmk}
 
-\SesiRPS{12}{7.2}{$\sim$170 menit}{CPMK-7}
+\SesiRPS{12}{7.2, 8.1}{$\sim$170 menit}{CPMK-7, CPMK-8}
 
 \section{Sarana dan prasarana}
 
-Python 3.10+, editor, terminal; tidak memerlukan paket pihak ketiga.
+Python 3.10+, editor, terminal. Untuk Sub-CPMK 8.1: instal \texttt{mypy} di \texttt{venv} laboratorium jika diizinkan (\texttt{pip install mypy}); jika jaringan terbatas, gunakan mode \textit{offline} sesuai kebijakan prodi.
 
 \section{Keselamatan kerja dan etika}
 
@@ -25,9 +26,12 @@ Etika akademik: comprehension dan generator harus Anda pahami, bukan hanya disal
   \item Bandingkan dengan loop klasik untuk kasus yang sama.
   \item Tulis satu generator dengan \texttt{yield}; iterasikan dengan \texttt{for} atau \texttt{next()}.
   \item Refaktor potongan kode loop panjang menjadi gaya idiomatik (aktivitas).
+  \item Tambahkan anotasi tipe pada fungsi di \texttt{comprehension.py}; jalankan \texttt{mypy} (atau pemeriksa yang ditetapkan dosen) dan perbaiki peringatan sederhana.
 \end{enumerate}
 
 \section{List dan Dict Comprehension}
+
+\noindent \textit{Comprehension} memadatkan loop pembangun koleksi menjadi satu ekspresi; bentuk set dan generator serupa secara sintaks. Tutorial bab struktur data (\href{https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions}{list comprehensions}, lampiran \textbf{[8]}) dan artikel komunitas \textbf{[19]} memberi variasi pola.
 
 \begin{lstlisting}[caption=Comprehension]
 squares = [x * x for x in range(10) if x % 2 == 0]
@@ -35,6 +39,8 @@ nama_ke_id = {n.lower(): i for i, n in enumerate(["Ali", "Budi", "Ali"])}
 \end{lstlisting}
 
 \section{Generator dengan yield}
+
+\noindent Fungsi yang memuat \texttt{yield} mengembalikan \textit{generator iterator}; nilai dihasilkan \textit{lazy} sehingga hemat memori untuk deret panjang. Lihat juga \href{https://docs.python.org/3/howto/functional.html#generators}{Generators} pada HOWTO fungsional (lampiran \textbf{[22]}).
 
 \begin{lstlisting}[caption=Generator sederhana]
 def countdown(n):
@@ -46,11 +52,41 @@ for x in countdown(3):
     print(x)
 \end{lstlisting}
 
+\section{Anotasi tipe dan pemeriksa statis (Sub-CPMK 8.1, pengenalan)}
+
+Python tidak mengharuskan pemeriksaan tipe di waktu jalan; alat seperti \texttt{mypy} membantu menemukan ketidakkonsistenan sebelum produksi. Contoh minimal pada fungsi yang sudah Anda tulis:
+
+\begin{lstlisting}[caption=Anotasi tipe dasar]
+def total(harga: list[float]) -> float:
+    return sum(harga)
+
+def main() -> None:
+    print(total([10.0, 5.5]))
+\end{lstlisting}
+
+\section{Contoh tambahan: \texttt{itertools.islice} pada generator}
+
+\noindent Kadang generator tidak perlu dikonversi penuh ke \texttt{list}. Fungsi \texttt{islice} mengambil potongan terbatas tanpa memuat seluruh deret ke memori; dokumentasi modul \href{https://docs.python.org/3/library/itertools.html}{\texttt{itertools}} pada pustaka standar (lampiran \textbf{[20]}) dan HOWTO gaya fungsional (lampiran \textbf{[22]}).
+
+\begin{lstlisting}[caption=islice pada generator countdown]
+from itertools import islice
+
+def countdown(n: int):
+    while n >= 0:
+        yield n
+        n -= 1
+
+print(list(islice(countdown(10), 0, 4)))  # [10, 9, 8, 7]
+\end{lstlisting}
+
+\noindent Perintah contoh (di terminal, dari folder proyek): \texttt{mypy comprehension.py} atau berkas yang Anda kerjakan. Perbaiki tanda tipe jika muncul peringatan jelas (mis.\ tipe balik, daftar kosong).
+
 \section{Studi Kasus dan Contoh Kode}
 
 Berikut adalah contoh-contoh program Python yang mengimplementasikan konsep-konsep pada modul ini.
 
 \subsection{Kode: \texttt{comprehension.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{comprehension.py}}]
 """Contoh penggunaan list comprehension dan generator."""
 
@@ -81,12 +117,15 @@ if __name__ == "__main__":
   \item \textbf{[14]} Pilgrim, M. \textit{Dive Into Python 3} --- iterator dan generator.
   \item \textbf{[8, 9]} \textit{The Python Tutorial} --- generator expressions.
   \item \textbf{[19]} Real Python --- comprehension dan generator.
+  \item \textbf{[26]} Dokumentasi \texttt{typing} --- kosakata anotasi.
+  \item \textbf{[27]} \textit{Typing documentation} (referensi praktis sistem tipe / mypy).
 \end{itemize}
 
 \begin{aktivitas}
   \item Dari list bilangan \texttt{data}, buat list baru berisi hanya bilangan positif ganjil memakai list comprehension.
   \item Buat dict comprehension yang memetakan huruf pertama kata ke panjang kata dari daftar string.
   \item Tulis generator \texttt{bilangan\_genap(maks)} yang menghasilkan bilangan genap dari 0 sampai \texttt{maks} (inklusif), lalu cetak hasilnya.
+  \item Anotasi tipe: beri tipe pada parameter dan nilai balik fungsi generator dan fungsi pembantu; lampirkan cuplikan keluaran \texttt{mypy} (tanpa error) di laporan singkat jika diminta.
   \item Simpan pekerjaan di \texttt{NIM\_TIF105\_M12\_comp.py}.
 \end{aktivitas}
 
@@ -96,19 +135,20 @@ if __name__ == "__main__":
 \end{latihan}
 
 \begin{asesmen}
-\textbf{Formatif:} comprehension valid secara sintaks; generator dapat diiterasi; refaktor mengurangi loop bersarang berlebihan tanpa mengubah hasil logika.
+\textbf{Formatif:} comprehension valid secara sintaks; generator dapat diiterasi; refaktor mengurangi loop bersarang berlebihan tanpa mengubah hasil logika; anotasi tipe konsisten pada fungsi yang dinilai dan bukti menjalankan pemeriksa statis (jika tersedia).
 \end{asesmen}
 
 \begin{checklist}
   \item Saya dapat menulis list/dict comprehension dasar
   \item Saya dapat membuat fungsi generator dengan \texttt{yield}
   \item Saya memahami kapan memakai generator untuk efisiensi memori
+  \item Saya dapat menambahkan anotasi tipe sederhana dan menjalankan \texttt{mypy} (atau setara) pada modul latihan
 \end{checklist}
 
 \begin{rangkuman}
-Comprehension memadatkan loop pembangun koleksi; generator menunda komputasi dengan \texttt{yield}.
+Comprehension memadatkan loop pembangun koleksi; generator menunda komputasi dengan \texttt{yield}. Sesi ini juga memulai jejak CPMK-8 lewat pemeriksaan tipe statis.
 
-\textbf{Kata kunci:} comprehension, generator, \code{yield}, iterator
+\textbf{Kata kunci:} comprehension, generator, \code{yield}, iterator, anotasi tipe, mypy
 \end{rangkuman}
 
 \end{document}

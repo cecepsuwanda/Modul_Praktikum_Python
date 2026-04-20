@@ -63,6 +63,8 @@ if __name__ == "__main__":
     main()
 \end{lstlisting}
 
+\noindent Saat berkas di-\texttt{import}, seluruh modul dieksekusi sekali; namun blok \texttt{if \_\_name\_\_ == "\_\_main\_\_"} pada modul yang diimpor tidak dijalankan. Contoh impor selektif berikut mengikuti tutorial modul resmi (\href{https://docs.python.org/3/tutorial/modules.html}{Modules}, lampiran \textbf{[8]}).
+
 \begin{lstlisting}[caption=Mengimpor fungsi dari berkas lain menggunakan modul]
 # berkas: tes.py
 from kalkulator import tambah, kurang
@@ -214,11 +216,32 @@ def cari_maks(daftar):
     return maks
 \end{lstlisting}
 
+\section{Contoh tambahan: daftar ekspor publik modul}
+
+\noindent Daftar \texttt{\detokenize{__all__}} mendefinisikan nama yang diimpor saat bentuk impor bintang (\texttt{import *}). Meskipun pola tersebut jarang dipakai di produksi, memahami mekanisme ini membantu merancang modul yang rapi.\newline
+Tutorial modul resmi: \path{https://docs.python.org/3/tutorial/modules.html} (lampiran \textbf{[8]}).
+
+\begin{lstlisting}[caption=Ekspor publik dengan dunder all]
+"""modul contoh_all."""
+
+__all__ = ["publik_a", "publik_b"]
+
+def publik_a() -> int:
+    return 1
+
+def publik_b() -> int:
+    return 2
+
+def _internal() -> int:
+    return 99
+\end{lstlisting}
+
 \section{Studi Kasus dan Contoh Kode}
 
 Berikut adalah contoh-contoh program Python yang mengimplementasikan konsep-konsep pada modul ini.
 
 \subsection{Kode: \texttt{utilitas.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{utilitas.py}}]
 """Modul utilitas contoh yang dapat diimpor atau dijalankan."""
 
@@ -236,6 +259,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{program\_utama.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{program\_utama.py}}]
 """Program utama yang mengimpor modul utilitas dan standar."""
 import random

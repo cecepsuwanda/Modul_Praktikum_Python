@@ -40,8 +40,14 @@ echo Running Stage 1: pdflatex...
 pdflatex -interaction=nonstopmode -halt-on-error -output-directory="%OUTPUT_DIR%" "main.tex"
 if errorlevel 1 goto :failed
 
-echo Running Stage 2: bibtex...
-bibtex "%OUTPUT_DIR%\main"
+findstr /C:"\bibdata" "%OUTPUT_DIR%\main.aux" >nul 2>&1
+if errorlevel 1 (
+    echo Skipping bibtex: no \\bibdata in main.aux.
+) else (
+    echo Running Stage 2: bibtex...
+    bibtex "%OUTPUT_DIR%\main"
+    if errorlevel 1 goto :failed
+)
 
 echo Running Stage 3: pdflatex...
 pdflatex -interaction=nonstopmode -halt-on-error -output-directory="%OUTPUT_DIR%" "main.tex"

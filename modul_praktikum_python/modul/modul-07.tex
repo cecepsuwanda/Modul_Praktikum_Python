@@ -64,6 +64,18 @@ with open("data.txt", "r", encoding="utf-8") as f:
 print(isi)
 \end{lstlisting}
 
+\section{Contoh tambahan: \texttt{pathlib.Path} untuk teks}
+
+\noindent Modul \texttt{pathlib} menyediakan antarmuka berorientasi objek untuk lintasan berkas; sering dipadukan dengan \texttt{read\_text}/\texttt{write\_text} untuk teks Unicode. Lihat tutorial berkas (\href{https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files}{Reading and Writing Files}, lampiran \textbf{[8]}) dan entri \texttt{pathlib} pada indeks pustaka standar (lampiran \textbf{[20]}).
+
+\begin{lstlisting}[caption=pathlib ringkas]
+from pathlib import Path
+
+p = Path("contoh_pathlib.txt")
+p.write_text("halo pathlib\n", encoding="utf-8")
+print(p.read_text(encoding="utf-8").strip())
+\end{lstlisting}
+
 \section{Metode Objek Berkas Lanjut}
 
 Objek berkas memiliki beberapa metode yang berguna (Tutorial Python §7.2.1):
@@ -166,6 +178,8 @@ def buka_berkas(nama: str) -> str:
         print(f"Percobaan membuka '{nama}' selesai.")
 \end{lstlisting}
 
+\noindent Selain menangkap pengecualian, Anda dapat \texttt{raise} untuk memberi sinyal kesalahan ke pemanggil. Pustaka standar mendefinisikan banyak tipe \texttt{Exception}; dokumentasi bab pengecualian (\href{https://docs.python.org/3/tutorial/errors.html}{Errors and Exceptions}) dan lampiran \textbf{[8]} memberi pola resmi.
+
 \begin{lstlisting}[caption=Raise exception dan exception kustom]
 def bagi(a: float, b: float) -> float:
     if b == 0:
@@ -193,6 +207,7 @@ except ValueError as e:
 Berikut adalah contoh-contoh program Python yang mengimplementasikan konsep-konsep pada modul ini.
 
 \subsection{Kode: \texttt{baca\_tulis.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{baca\_tulis.py}}]
 """Menulis dan membaca file teks dengan penanganan kesalahan dasar."""
 
@@ -223,6 +238,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{olah\_json.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{olah\_json.py}}]
 """Menyimpan dan memuat data JSON."""
 import json

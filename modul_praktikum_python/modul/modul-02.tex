@@ -96,6 +96,8 @@ print(teks.strip().count("a"))    # hitung kemunculan 'a'
 
 \subsection{Multiline String dan Raw String}
 
+\noindent Tiga tanda kutip (\texttt{"""..."""}) membuat string literal yang dapat memanjang beberapa baris; huruf \texttt{r} tepat sebelum kutip membentuk \textit{raw string} sehingga garis miring terbalik tidak diartikan sebagai \textit{escape}. Pola ini umum untuk pola berkas Windows dan regex; lihat bagian string pada \textit{The Python Tutorial} (lampiran \textbf{[8]}, \textbf{[9]}) dan ringkasan sintaks \textbf{[16]}.
+
 \begin{lstlisting}[caption=String multiline dan raw]
 pesan = """Baris satu
 Baris dua
@@ -160,6 +162,7 @@ print(". Selesai")
 Berikut adalah contoh-contoh program Python yang mengimplementasikan konsep-konsep pada modul ini.
 
 \subsection{Kode: \texttt{demo\_tipe\_data.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{demo\_tipe\_data.py}}]
 """Demonstrasi beberapa tipe data (integer, besar, byte, float, string)."""
 
@@ -184,6 +187,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{assignment\_real.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{assignment\_real.py}}]
 """Rantai assignment pada variabel float."""
 
@@ -203,6 +207,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{baca\_tulis.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{baca\_tulis.py}}]
 """Contoh membaca dan menulis beberapa tipe dari input."""
 
@@ -225,6 +230,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{operasi\_boolean\_dan\_numerik.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{operasi\_boolean\_dan\_numerik.py}}]
 """Tabel kebenaran boolean dan operasi numerik int/float."""
 

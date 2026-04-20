@@ -25,6 +25,26 @@ Python 3.10+, editor, terminal.
 
 \section{List: Lebih Dalam}
 
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{|l|c|c|>{\raggedright\arraybackslash}p{4.5cm}|}
+\hline
+\textbf{Tipe} & \textbf{Mutable} & \textbf{Terurut*} & \textbf{Kegunaan ringkas} \\
+\hline
+\texttt{list} & Ya & Ya & Koleksi berubah, stack/queue sederhana \\
+\hline
+\texttt{tuple} & Tidak & Ya & Rekaman tetap, kunci \texttt{dict} \\
+\hline
+\texttt{dict} & Ya & Ya (3.7$+$)\dag & Pemetaan kunci $\rightarrow$ nilai \\
+\hline
+\texttt{set} & Ya & Tidak & Unik, operasi himpunan \\
+\hline
+\end{tabular}
+\caption{Ringkasan struktur data inti; rinci di \textit{The Python Tutorial} bab 5: \protect\url{https://docs.python.org/3/tutorial/datastructures.html} --- \textbf{[8]}, \textbf{[9]}; panduan struktur data \textbf{[19]}. \textit{*Urutan iterasi. \dag Perilaku urutan kunci \texttt{dict} pada Python 3.7+.}}
+\label{tab:struktur-data}
+\end{table}
+
 \texttt{list} adalah struktur data \textit{mutable} paling sering digunakan. Indeks dimulai dari 0; irisan \texttt{s[a:b]} eksklusif di ujung kanan.
 
 \begin{lstlisting}[caption=Metode list lengkap (Tutorial Python ss5.1)]
@@ -153,6 +173,19 @@ unik = list(set(data))
 print(sorted(unik))   # [1, 2, 3, 4]
 \end{lstlisting}
 
+\section{Contoh tambahan: \texttt{collections.Counter}}
+
+\noindent \texttt{Counter} menghitung frekuensi elemen pada iterable atau pemetaan; cocok untuk ringkasan data sederhana sebelum memasuki \texttt{pandas}. Dokumentasi modul \href{https://docs.python.org/3/library/collections.html#collections.Counter}{\texttt{collections}} termasuk indeks pustaka standar (lampiran \textbf{[20]}).
+
+\begin{lstlisting}[caption=Counter pada teks token sederhana]
+from collections import Counter
+
+teks = "python python praktikum"
+hitung = Counter(teks.split())
+print(hitung)          # Counter({'python': 2, 'praktikum': 1})
+print(hitung.most_common(1))
+\end{lstlisting}
+
 \section{Dictionary}
 
 Memetakan kunci ke nilai; kunci harus \textit{hashable} (Tutorial Python §5.5):
@@ -223,6 +256,7 @@ print(f"{'kiri':<10}|{'kanan':>10}")  # perataan
 Berikut adalah contoh-contoh program Python yang mengimplementasikan konsep-konsep pada modul ini.
 
 \subsection{Kode: \texttt{matriks\_3x3.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{matriks\_3x3.py}}]
 """Matriks 3x3: isi dan cetak."""
 
@@ -255,6 +289,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{array\_isi\_cetak.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{array\_isi\_cetak.py}}]
 """Array 1..3: isi dengan while, cetak dengan for."""
 
@@ -278,6 +313,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{array\_prosedur.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{array\_prosedur.py}}]
 """Prosedur isi dan cetak array [1..3]."""
 
@@ -307,6 +343,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{daf\_pegawai\_array.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{daf\_pegawai\_array.py}}]
 """Daftar 5 pegawai: input lalu cetak satu per satu."""
 
@@ -370,6 +407,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{record\_upah.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{record\_upah.py}}]
 """Record pegawai: upah kotor menurut gol dan tunjangan anak."""
 
@@ -414,6 +452,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{record\_prosedur.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{record\_prosedur.py}}]
 """Input dan cetak pegawai dengan fungsi upah (setara record_prosedur.pas)."""
 

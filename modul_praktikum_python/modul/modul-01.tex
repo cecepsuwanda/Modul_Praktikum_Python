@@ -26,6 +26,23 @@ Komputer laboratorium dengan Python 3.10+ (atau versi yang ditetapkan prodi), te
 
 Python adalah bahasa tingkat tinggi yang banyak dipakai untuk pembelajaran, sains data, otomasi, dan pengembangan web. Versi yang digunakan pada modul ini adalah \textbf{Python 3}. Pastikan perintah \texttt{python --version} atau \texttt{python3 --version} menampilkan 3.x.
 
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|l|>{\raggedright\arraybackslash}p{4.2cm}|>{\raggedright\arraybackslash}p{5.8cm}|}
+\hline
+\textbf{Mode} & \textbf{Kapan memakai} & \textbf{Rujukan belajar terbuka} \\
+\hline
+REPL & Eksperimen cepat, kalkulator, cek sintaks & Tutorial Python bab 3; \textbf{[8]}, \textbf{[9]} \\
+\hline
+Skrip \texttt{.py} & Program utuh, tugas, otomasi & Tutorial bab 2--4; \textbf{[12]} \\
+\hline
+Jupyter & Eksplorasi data, laporan campur teks/kode & Modul UIMA \textbf{[6]}; \textbf{[4]} (repositori contoh) \\
+\hline
+\end{tabular}
+\caption[Perbandingan mode menjalankan Python]{Perbandingan mode menjalankan Python; tautan tutorial resmi di \texttt{sumber\_materi.md}.}
+\label{tab:mode-jalankan}
+\end{table}
+
 \section{Menjalankan Program}
 
 \subsection{REPL (Read--Eval--Print Loop)}
@@ -50,6 +67,17 @@ print("Halo dari berkas")
 
 Perintah: \texttt{python halo.py} (atau \texttt{python3 halo.py}).
 
+\subsection{Mengetahui versi interpreter}
+
+\noindent Menyamakan versi interpreter dengan panduan laboratorium mengurangi perbedaan perilaku antar mesin. Modul pustaka \texttt{sys} menyediakan informasi versi yang dapat dicetak dari skrip; dokumentasi resmi: \href{https://docs.python.org/3/library/sys.html}{\texttt{sys}} pada indeks pustaka standar (lampiran \textbf{[20]}), konteks instalasi pada \textit{The Python Tutorial} bab 2 (lampiran \textbf{[8]}, \textbf{[9]}).
+
+\begin{lstlisting}[caption=Cek versi Python dari skrip]
+import sys
+
+print(sys.version)
+print(sys.version_info)
+\end{lstlisting}
+
 \subsection{Jupyter Notebook}
 
 Jupyter menyediakan sel kode dan dokumentasi.\newline Setelah instalasi (\texttt{pip install notebook}),\newline jalankan \texttt{jupyter notebook} dan buat buku kerja baru. Sel kode dieksekusi dengan Shift+Enter.
@@ -71,6 +99,7 @@ Nama yang baik: \texttt{nilai\_tugas}, \texttt{hitung\_rata}. Hindari: \texttt{1
 Berikut adalah contoh-contoh program Python yang mengimplementasikan konsep-konsep pada modul ini.
 
 \subsection{Kode: \texttt{hello.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{hello.py}}]
 """Menampilkan Hello dunia (cuplikan minimal)."""
 
@@ -85,6 +114,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{hello2.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{hello2.py}}]
 """Hello dengan variabel string dan integer (setara hello2.pas)."""
 

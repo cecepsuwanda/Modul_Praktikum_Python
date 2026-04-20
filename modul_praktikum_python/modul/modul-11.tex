@@ -6,9 +6,10 @@
 
 \begin{subcpmk}
   \item Sub-CPMK 7.3: Menulis tes unit sederhana untuk fungsi murni menggunakan \texttt{unittest} atau \texttt{pytest} serta menjalankan tes dari terminal
+  \item Sub-CPMK 8.2: Mengonfigurasi \texttt{logging} minimal (level, formatter sederhana) pada skrip kecil agar jejak eksekusi terdokumentasi
 \end{subcpmk}
 
-\SesiRPS{13}{7.3}{$\sim$170 menit}{CPMK-7}
+\SesiRPS{13}{7.3, 8.2}{$\sim$170 menit}{CPMK-7, CPMK-8}
 
 \section{Sarana dan prasarana}
 
@@ -24,9 +25,12 @@ Tes harus mencerminkan perilaku yang diharapkan, bukan ``memalsukan'' lolos deng
   \item Pilih 2--3 fungsi murni (tanpa I/O berat) dari latihan sebelumnya atau buat baru.
   \item Tulis berkas \texttt{test\_*.py} dengan kasus normal dan tepi (\textit{edge case}).
   \item Jalankan \texttt{python -m unittest} atau \texttt{pytest -q}; perbaiki kode/fungsi hingga hijau.
+  \item Tambahkan \texttt{logging} pada modul yang diuji (mis.\ \texttt{INFO} saat fungsi dipanggil, \texttt{WARNING} pada input tidak wajar); verifikasi keluaran ke konsol atau berkas log sesuai petunjuk dosen.
 \end{enumerate}
 
 \section{Tes dengan unittest}
+
+\noindent Kerangka \texttt{unittest} memakai kelas turunan \texttt{TestCase} dan metode yang diawali \texttt{test\_}; asersi seperti \texttt{assertEqual} membandingkan nilai aktual dan harapan. Dokumentasi resmi \href{https://docs.python.org/3/library/unittest.html}{\texttt{unittest}} (lampiran \textbf{[24]}) menyediakan daftar asersi lengkap.
 
 \begin{lstlisting}[caption=unittest dasar]
 import unittest
@@ -47,6 +51,8 @@ if __name__ == "__main__":
 
 \section{Gaya pytest (opsional)}
 
+\noindent \texttt{pytest} memungkinkan fungsi tes biasa dengan pernyataan \texttt{assert} Python; cocok untuk suite kecil di laboratorium. Panduan resmi \href{https://docs.pytest.org/en/stable/getting-started.html}{Getting Started} (lampiran \textbf{[25]}) menjelaskan penemuan tes otomatis berkas \texttt{test\_*.py}.
+
 \begin{lstlisting}[caption=pytest ringkas]
 # test_contoh_pytest.py
 def kali(a, b):
@@ -58,11 +64,71 @@ def test_kali():
 
 \noindent Jalankan: \texttt{pytest -q test\_contoh\_pytest.py}.
 
+\section{Contoh tambahan: \texttt{pytest.mark.parametrize}}
+
+\noindent Untuk beberapa kasus uji yang memakai fungsi yang sama, \texttt{parametrize} mengurangi duplikasi. Dokumentasi resmi \href{https://docs.pytest.org/en/stable/how-to/parametrize.html}{pytest parametrizing} (lampiran \textbf{[25]}) menunjukkan pola lanjutan.
+
+\begin{lstlisting}[caption=pytest parametrizasi sederhana]
+import pytest
+
+def bagi(a, b):
+    return a / b
+
+@pytest.mark.parametrize("a,b,hasil", [(10, 2, 5.0), (9, 3, 3.0)])
+def test_bagi(a, b, hasil):
+    assert bagi(a, b) == hasil
+\end{lstlisting}
+
+\section{\texttt{logging} terstruktur (Sub-CPMK 8.2, pengenalan)}
+
+Modul \texttt{logging} standar menggantikan pola \texttt{print} untuk jejak yang dapat difilter menurut level. Contoh konfigurasi minimal:
+
+\noindent Konfigurasi \texttt{basicConfig} di bawah hanya contoh pengenalan; aplikasi nyata sering memakai logger bernama dan berkas rotasi. Baca \href{https://docs.python.org/3/howto/logging.html}{Logging HOWTO} (lampiran \textbf{[23]}).
+
+\begin{lstlisting}[caption=logging dasar]
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(levelname)s %(name)s: %(message)s",
+)
+
+def bagi(a: float, b: float) -> float:
+    logging.info("bagi dipanggil a=%s b=%s", a, b)
+    if b == 0:
+        logging.warning("pembagi nol")
+        raise ValueError("Pembagi tidak boleh nol")
+    return a / b
+\end{lstlisting}
+
+\noindent Level umum: \texttt{DEBUG}, \texttt{INFO}, \texttt{WARNING}, \texttt{ERROR}, \texttt{CRITICAL}. Untuk uji, Anda dapat menaikkan level log agar konsol tidak berisik, atau mengarahkan ke berkas sementara.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{|l|>{\raggedright\arraybackslash}p{9.8cm}|}
+\hline
+\textbf{Level} & \textbf{Kegunaan ringkas} \\
+\hline
+\texttt{DEBUG} & Detail teknis saat pengembangan; biasanya dimatikan di produksi \\
+\hline
+\texttt{INFO} & Alur normal aplikasi (mis.\ fungsi dipanggil, parameter ringkas) \\
+\hline
+\texttt{WARNING} & Kondisi tidak wajar namun program tetap jalan \\
+\hline
+\texttt{ERROR} / \texttt{CRITICAL} & Kegagalan operasi atau kondisi serius \\
+\hline
+\end{tabular}
+\caption{Urutan filter level \texttt{logging} (ringkas). Panduan resmi: \protect\url{https://docs.python.org/3/howto/logging.html} --- \textbf{[23]} pada \texttt{sumber\_materi.md}.}
+\label{tab:logging-level}
+\end{table}
+
 \section{Studi Kasus dan Contoh Kode}
 
 Berikut adalah contoh-contoh program Python yang mengimplementasikan konsep-konsep pada modul ini.
 
 \subsection{Kode: \texttt{test\_matematika.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{test\_matematika.py}}]
 """Contoh pengujian unit sederhana dengan unittest."""
 import unittest
@@ -96,12 +162,14 @@ if __name__ == "__main__":
   \item \textbf{[19]} Real Python --- pengujian dan \texttt{pytest}/\texttt{unittest}.
   \item \textbf{[8]} \textit{The Python Tutorial} --- modul \texttt{unittest}.
   \item \textbf{[13]} \textit{Think Python} --- pengujian dan asersi (bab terkait).
+  \item \textbf{[23]} Dokumentasi \texttt{logging} --- konfigurasi dan level.
 \end{itemize}
 
 \begin{aktivitas}
   \item Implementasikan fungsi \texttt{palindrome(s)} yang mengembalikan \texttt{True} jika string sama jika dibalik (abaikan spasi opsional sesuai spesifikasi dosen).
   \item Tulis minimal tiga kasus uji (positif, negatif, string kosong) dengan \texttt{unittest}.
   \item Jika prodi mengizinkan \texttt{pytest}, duplikasikan satu kasus dalam sintaks \texttt{assert}.
+  \item Tambahkan \texttt{logging} pada modul \texttt{palindrome} (atau berkas utama) dengan minimal satu pesan \texttt{INFO} dan satu \texttt{WARNING}/\texttt{ERROR} pada kasus tidak valid.
   \item Kumpulkan \texttt{NIM\_TIF105\_M13\_test.py} (dan modul yang diuji jika terpisah).
 \end{aktivitas}
 
@@ -111,19 +179,20 @@ if __name__ == "__main__":
 \end{latihan}
 
 \begin{asesmen}
-\textbf{Formatif:} suite tes dapat dijalankan; minimal tiga asersi bermakna; satu kasus gagal disengaja kemudian diperbaiki (demonstrasi di laporan singkat).
+\textbf{Formatif:} suite tes dapat dijalankan; minimal tiga asersi bermakna; satu kasus gagal disengaja kemudian diperbaiki (demonstrasi di laporan singkat); konfigurasi \texttt{logging} terlihat pada jalur eksekusi normal dan kasus error.
 \end{asesmen}
 
 \begin{checklist}
   \item Saya dapat menulis kelas turunan \texttt{TestCase}
   \item Saya dapat menjalankan tes dari baris perintah
   \item Saya memahami peran asersi dalam dokumentasi perilaku fungsi
+  \item Saya dapat mengonfigurasi \texttt{logging} dasar dan memilih level yang sesuai
 \end{checklist}
 
 \begin{rangkuman}
-Pengujian unit membantu memastikan fungsi berperilaku sesuai kontrak; \texttt{unittest} built-in; \texttt{pytest} populer untuk sintaks ringkas.
+Pengujian unit membantu memastikan fungsi berperilaku sesuai kontrak; \texttt{unittest} built-in; \texttt{pytest} populer untuk sintaks ringkas. Sesi ini memperkenalkan \texttt{logging} sebagai bagian dari CPMK-8 (kualitas operasional kode).
 
-\textbf{Kata kunci:} \code{unittest}, \code{pytest}, asersi, kasus uji
+\textbf{Kata kunci:} \code{unittest}, \code{pytest}, asersi, kasus uji, \code{logging}
 \end{rangkuman}
 
 \end{document}

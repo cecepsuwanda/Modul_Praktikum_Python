@@ -22,6 +22,16 @@ Python 3.10+, editor, terminal.
   \item Dokumentasikan pola iterasi pada laporan singkat.
 \end{enumerate}
 
+\section{Contoh tambahan: \texttt{enumerate} dengan indeks mulai bukan nol}
+
+\noindent Fungsi bawaan \texttt{enumerate} berguna saat Anda perlu indeks sekaligus elemen, misalnya untuk menampilkan tabel bernomor. Argumen \texttt{start} menggeser basis indeks tanpa mengubah koleksi asli; lihat bagian loop pada \href{https://docs.python.org/3/tutorial/controlflow.html}{tutorial kontrol alur} (lampiran \textbf{[8]}).
+
+\begin{lstlisting}[caption=enumerate dengan start=1]
+nama = ["Ani", "Budi", "Citra"]
+for i, n in enumerate(nama, start=1):
+    print(f"{i}. {n}")
+\end{lstlisting}
+
 \section{Perulangan \texttt{for}}
 
 \texttt{for} digunakan untuk iterasi pada rentang atau koleksi. Tidak seperti beberapa bahasa lain, \texttt{for} di Python mengiterasi \textit{item} dari sequence secara langsung.
@@ -107,6 +117,8 @@ for n in range(2, 10):
         print(n, "adalah bilangan prima")
 \end{lstlisting}
 
+\noindent Varian yang sama untuk \texttt{while}: jika loop selesai tanpa pernah mengeksekusi \texttt{break}, blok \texttt{else} dianggap jalur ``tidak ditemukan''. Cuplikan berikut mencari nilai dalam daftar; bandingkan dengan pola serupa di \href{https://docs.python.org/3/tutorial/controlflow.html}{bab kontrol alur tutorial resmi} (lampiran \textbf{[8]}).
+
 \begin{lstlisting}[caption=else pada loop while: pencarian nilai]
 daftar = [5, 3, 8, 1, 9, 2]
 target = 7
@@ -155,6 +167,7 @@ for baris in range(1, n + 1):
 Berikut adalah contoh-contoh program Python yang mengimplementasikan konsep-konsep pada modul ini.
 
 \subsection{Kode: \texttt{hitung\_mundur.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{hitung\_mundur.py}}]
 """Mencetak hitung mundur N, N-1, ... , 1, 0."""
 
@@ -171,6 +184,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{menu\_geometri\_repeat.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{menu\_geometri\_repeat.py}}]
 """Menu geometri dengan repeat sampai pilihan 0."""
 
@@ -206,6 +220,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{pangkat\_for.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{pangkat\_for.py}}]
 """Pangkat bilangan real dengan perulangan for."""
 
@@ -225,6 +240,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{pola\_bintang.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{pola\_bintang.py}}]
 """Segitiga bintang dengan baris mengecil."""
 
@@ -242,6 +258,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{tabel\_pangkat\_x.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{tabel\_pangkat\_x.py}}]
 """Tabel x, 1/x, x^2, x^3 untuk x = 1..10."""
 
@@ -269,6 +286,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{cek\_tombol\_a.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{cek\_tombol\_a.py}}]
 """Cek apakah pengguna menekan huruf A besar."""
 
@@ -289,6 +307,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{rata\_rata\_data.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{rata\_rata\_data.py}}]
 """Input N data dan hitung total serta rata-rata."""
 
@@ -312,6 +331,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{pangkat\_latihan.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{pangkat\_latihan.py}}]
 """Latihan fungsi pangkat - isi fpangkat (stub)."""
 
@@ -336,6 +356,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \subsection{Kode: \texttt{balik\_bilangan.py}}
+\introstudikasuskode
 \begin{lstlisting}[language=Python,caption={\texttt{balik\_bilangan.py}}]
 """Mencetak digit bilangan dari belakang (mod/div)."""
 

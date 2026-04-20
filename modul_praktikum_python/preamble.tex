@@ -12,6 +12,7 @@
 \geometry{a4paper, margin=2.5cm, headheight=28pt, headsep=14pt}
 
 \usepackage{graphicx}
+\graphicspath{{gambar/}}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
@@ -31,6 +32,14 @@
   citecolor=blue,
   bookmarksnumbered=true,
   pdfstartview=FitH
+}
+
+\usepackage{caption}
+\captionsetup{
+  justification=raggedright,
+  singlelinecheck=false,
+  labelfont=bf,
+  font=small
 }
 
 \usepackage{subfiles}
@@ -183,6 +192,12 @@
 \newcommand{\code}[1]{\texttt{#1}}
 \newcommand{\keyword}[1]{\textcolor{pykeyword}{\texttt{\textbf{#1}}}}
 
+% Paragraf pembuka sebelum cuplikan ``Studi kasus'' (subsection Kode: ...).
+\newcommand{\introstudikasuskode}{%
+  \noindent Cuplikan program lengkap di bawah mengintegrasikan materi bab ini. Perhatikan struktur \texttt{main}, pemecahan fungsi, dan konvensi penamaan; cocokkan perilaku dengan contoh ringkas di bagian awal bab. Rujukan belajar terbuka: \textit{The Python Tutorial} \href{https://docs.python.org/3/tutorial/}{docs.python.org/3/tutorial} (lampiran \textbf{[8]}, \textbf{[9]}); peta topik pada berkas \texttt{sumber\_materi.md}.%
+  \par\medskip
+}
+
 % Makro sesi praktikum — selaras tabel RPS TIF-105 (silabus_praktikum_python.tex)
 \newcommand{\SesiRPS}[4]{%
   \section{Informasi sesi praktikum}%
@@ -200,3 +215,20 @@
 
 \setcounter{tocdepth}{2}
 \setcounter{secnumdepth}{3}
+
+% Judul terpusat: listing kode dan tabel mengambang.
+% Figure tetap mengikuti \captionsetup global (raggedright). Bila nanti ada \caption pada longtable, tambahkan \captionsetup[longtable]{...} di sini.
+\AtBeginDocument{%
+  \captionsetup[lstlisting]{%
+    justification=centering,
+    singlelinecheck=false,
+    labelfont=bf,
+    font=small
+  }%
+  \captionsetup[table]{%
+    justification=centering,
+    singlelinecheck=false,
+    labelfont=bf,
+    font=small
+  }%
+}
